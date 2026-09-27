@@ -13,7 +13,7 @@ A complete LLM inference stack on one HAMi-sliced NVIDIA H100: LiteLLM gateway, 
 | [`analyst_crew/`](analyst_crew/README.md) | CrewAI data-analyst crew (3 agents, 9 tools) that drives the cluster with graded, tool-heavy agent traffic |
 | [`bench-results/`](bench-results/) | Measured results: quick benchmarks (`quick/`) and agent evaluations (`agent/`, including `agent_runs.csv` and `agent_questions.csv`) |
 | [`Blueprint_2_multi_GPU_A100.md`](Blueprint_2_multi_GPU_A100.md) | The follow-up plan for an 8×A100 node |
-| [`artifacts/`](artifacts/README.md) | Everything to look at, rendered on GitHub: architecture diagrams, Grafana screenshots, charts, PDFs |
+| [`artifacts/`](artifacts/README.md) | Everything to look at, rendered on GitHub: the results report, architecture diagrams, Grafana screenshots, charts, PDFs |
 
 ## Getting started
 
@@ -21,6 +21,8 @@ A complete LLM inference stack on one HAMi-sliced NVIDIA H100: LiteLLM gateway, 
 2. Provision a Lambda 1× H100 node and run the phases in order (`blueprint1/scripts/00_…` to `08_…`).
 3. Point the agent at the gateway: [`analyst_crew/README.md`](analyst_crew/README.md), "Run against the cluster, step by step".
 
-## Status
+## Results
 
-Measured on 26 Sep 2026 in configuration C (2 prefill + 3 decode pods, `kv_router`), **with the Mooncake KV tier disabled**. The vLLM pods could not reach the Mooncake master's RPC port, so that tier is not yet validated. See `blueprint1/README.md` (troubleshooting) and the results in `bench-results/`.
+**[Blueprint 1 results report](artifacts/docs/blueprint1-results-report.md)** ([PDF](artifacts/docs/blueprint1-results-report.pdf)): cluster setup, capacity on paper, `rate4`/`rateinf`/multi-turn benchmarks with and without the LMCache/Mooncake KV tier, and the agent validation runs.
+
+Measured on 26 Sep 2026 in configuration C (2 prefill + 3 decode pods, `kv_router`, LMCache/Mooncake KV tier), compared with the same stack without the KV tier (`C-nokv`). Under a 400-request burst the KV tier raised throughput 9% and cut p95 inter-token latency from 197 to 40 ms; at light load it added 14–58% to time to first token. The agent validation runs were measured without the KV tier.

@@ -60,10 +60,15 @@ Dashboard "Blueprint 1 — Inference stack", configuration C with the Mooncake K
 
 ![Agent run outcomes](charts/agent-run-outcomes.png)
 
-**Multi-turn benchmark: time to first token by turn**, from [`../bench-results/quick/results_C_multiturn.json`](../bench-results/quick/results_C_multiturn.json). Later turns are faster despite longer prompts, because of prefix caching (85.6% hit rate).
+**400-request burst, without and with the KV tier**, from [`../bench-results/quick/`](../bench-results/quick/) (`results_C-nokv_rateinf.json`, `results_C_rateinf.json`). With the LMCache/Mooncake tier, throughput rose 9% and p95 inter-token latency fell from 197 to 40 ms.
+
+![Burst latency with and without the KV tier](charts/burst-latency-kv-tier.png)
+
+**Multi-turn benchmark: time to first token by turn, without and with the KV tier**, from the `multiturn` results in [`../bench-results/quick/`](../bench-results/quick/). The GPU prefix cache already serves 85% of prompt tokens; the KV tier adds 29–55% to TTFT at this light load.
 
 ![Multi-turn TTFT by turn](charts/multiturn-ttft-by-turn.png)
 
 ## Documents
 
+- **Blueprint 1 results report**: cluster setup, capacity, benchmarks with and without the KV tier, agent validation. [Read on GitHub](docs/blueprint1-results-report.md) · [PDF](docs/blueprint1-results-report.pdf)
 - **Blueprint 1: Kubernetes manifests explained** (15 pages): [read inline](docs/blueprint1-kubernetes-manifests-explained/README.md) · [PDF](docs/blueprint1-kubernetes-manifests-explained.pdf)
