@@ -2,7 +2,7 @@
 
 A complete LLM inference stack on one HAMi-sliced NVIDIA H100: LiteLLM gateway, a cache-aware router with an admission queue, disaggregated prefill/decode vLLM pods, an LMCache/Mooncake KV tier, and Prometheus/Grafana. It includes benchmarks and a tool-calling agent workload that exercise the stack.
 
-![Blueprint 1 architecture](blueprint_1_architecture_excalidraw.svg)
+![Blueprint 1 architecture](artifacts/diagrams/blueprint1-architecture.svg)
 
 ## What's here
 
@@ -13,8 +13,7 @@ A complete LLM inference stack on one HAMi-sliced NVIDIA H100: LiteLLM gateway, 
 | [`analyst_crew/`](analyst_crew/README.md) | CrewAI data-analyst crew (3 agents, 9 tools) that drives the cluster with graded, tool-heavy agent traffic |
 | [`bench-results/`](bench-results/) | Measured results: quick benchmarks (`quick/`) and agent evaluations (`agent/`, including `agent_runs.csv` and `agent_questions.csv`) |
 | [`Blueprint_2_multi_GPU_A100.md`](Blueprint_2_multi_GPU_A100.md) | The follow-up plan for an 8×A100 node |
-| `*_excalidraw.svg` | Architecture diagrams: Blueprint 1, Blueprint 2, the agent system |
-| `grafana screenshots.docx` | Grafana dashboard captures from the benchmark and agent runs |
+| [`artifacts/`](artifacts/README.md) | Everything to look at, rendered on GitHub: architecture diagrams, Grafana screenshots, charts, PDFs |
 
 ## Getting started
 

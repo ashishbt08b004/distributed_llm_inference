@@ -1,5 +1,7 @@
 # Blueprint 2 — Multi-GPU LLM inference stack on 1× 8×A100 node
 
+![Blueprint 2 architecture](artifacts/diagrams/blueprint2-architecture.svg)
+
 **Goal:** rerun the same architecture from Blueprint 1, but on a Lambda **8× A100 SXM 80GB** node so that (a) each pod gets its own physical GPU with real NVLink between them, (b) we can serve a larger model with tensor parallelism, and (c) the prefill/decode disaggregation shows measurable latency wins rather than being architecturally-real-but-numerically-noisy.
 
 **Target model:** `meta-llama/Llama-3.1-70B-Instruct` (accept the license first at HuggingFace) or `Qwen/Qwen2.5-72B-Instruct` (no license gating).

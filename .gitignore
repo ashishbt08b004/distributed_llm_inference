@@ -19,3 +19,9 @@ blueprint1/results-single-node/
 
 # Report output (kept local)
 report/
+
+# Office files don't render on GitHub: export to PDF (documents) or PNG (screenshots)
+# and put those under artifacts/. The originals can stay on disk next to them.
+*.docx
+*.pptx
+*.xlsx

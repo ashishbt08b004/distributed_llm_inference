@@ -25,7 +25,9 @@ flowchart LR
   PR[Prometheus + Grafana<br/>DCGM, vLLM, router, Mooncake] -.scrape.-> P & D & K & MM
 ```
 
-The same picture, drawn in full: [`blueprint_1_architecture_excalidraw.svg`](../blueprint_1_architecture_excalidraw.svg).
+The same picture, drawn in full:
+
+![Blueprint 1 architecture](../artifacts/diagrams/blueprint1-architecture.svg)
 
 **The two routers are alternatives.** The `router` Service always points at exactly one of them. `set_config.sh` / `06_deploy_router.sh` pick which one:
 

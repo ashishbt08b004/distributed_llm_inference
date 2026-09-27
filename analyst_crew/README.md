@@ -18,7 +18,9 @@ flowchart LR
   R -. optional .-> P[Prometheus :9090<br/>queue depth, prefix hits, TTFT]
 ```
 
-The full hand-drawn schematic, in the same style as the blueprint diagrams: [`analyst_crew_architecture_excalidraw.svg`](../analyst_crew_architecture_excalidraw.svg).
+The full hand-drawn schematic, in the same style as the blueprint diagrams:
+
+![Analyst crew architecture](../artifacts/diagrams/analyst-crew-architecture.svg)
 
 ## The crew
 

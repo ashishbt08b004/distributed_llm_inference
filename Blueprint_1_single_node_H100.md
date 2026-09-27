@@ -12,7 +12,7 @@
 - Basic kubectl + Helm familiarity
 - ~10 GB free on your laptop for kubeconfig, logs, benchmark results
 
-**Architecture diagram:** [`blueprint_1_architecture_excalidraw.svg`](blueprint_1_architecture_excalidraw.svg). **Runnable implementation:** [`blueprint1/README.md`](blueprint1/README.md). It follows this plan, fixes the parts that don't work as written, and adds a second router (`kv_router`) with an admission queue (see Phase 6).
+**Architecture diagram:** [`artifacts/diagrams/blueprint1-architecture.svg`](artifacts/diagrams/blueprint1-architecture.svg). **Runnable implementation:** [`blueprint1/README.md`](blueprint1/README.md). It follows this plan, fixes the parts that don't work as written, and adds a second router (`kv_router`) with an admission queue (see Phase 6).
 
 ---
 
