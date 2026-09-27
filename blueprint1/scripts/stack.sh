@@ -54,6 +54,8 @@ deploy_pools() {
       ;;
     *) die "unknown config '$cfg' (A|B|C)";;
   esac
+  # Any pool (re)deploy is a new deployment: 08_run_benchmarks.sh re-runs results older than this.
+  echo "$cfg" > "$BP1_ROOT/.active_config"
 }
 
 deploy_router() {

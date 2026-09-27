@@ -39,6 +39,13 @@ extra_config:
   device_name: ""
   global_segment_size: $(( MOONCAKE_CLIENT_SEGMENT_GB * 1024 * 1024 * 1024 ))
   master_server_address: "${MOONCAKE_MASTER_HOST}:50051"
+  # LMCache 0.5.5 hands these keys to Mooncake's dict-based setup(), which reads
+  # 'master_server_addr', not 'master_server_address'. Unknown keys are ignored,
+  # so without this line every vLLM pod dialled the default 127.0.0.1:50051
+  # ("Client not available" x20, then a segfault on the first KV load).
+  # LMCache strips the 'mooncake_' prefix and gives it priority. The legacy key
+  # above still serves LMCache's positional-setup fallback.
+  mooncake_master_server_addr: "${MOONCAKE_MASTER_HOST}:50051"
   local_buffer_size: 0
   mooncake_prefer_local_alloc: false
 EOF

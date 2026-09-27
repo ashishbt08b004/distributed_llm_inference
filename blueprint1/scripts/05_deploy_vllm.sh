@@ -40,8 +40,29 @@ for url in $(metric_targets "$CFG"); do
   echo "$OUT" | jq -r '.choices[0].text'
   echo "$OUT" | grep -qi paris || warn "no 'Paris' in the answer from $url"
 done
-if [ "$CFG" = "C" ]; then
+if [ "$CFG" = "C" ] && [ "${ENABLE_KV_TIER_C:-true}" = "true" ]; then
   log "LMCache/Mooncake init lines from a decode pod:"
   kubectl -n inference logs vllm-decode-0 | grep -iE "lmcache|mooncake" | tail -8 || true
+
+  # A pod can report Ready with a broken Mooncake client (LMCache logs the failure
+  # and carries on), then segfault on its first KV load. Catch both here.
+  for pod in $(kubectl -n inference get pods -l app=vllm -o name); do
+    if kubectl -n inference logs "$pod" | grep -qE "Client not available|Failed to create client|setup failed"; then
+      die "$pod: Mooncake client did not initialise (see: kubectl -n inference logs ${pod#pod/} | grep -iE 'mooncake|client')"
+    fi
+  done
+  log "Exercising the KV tier: a ~1.5k-token prompt twice (above LMCache's ${LMCACHE_CHUNK_SIZE}-token chunk)"
+  RESTARTS_BEFORE=$(kubectl -n inference get pods -l app=vllm -o jsonpath='{range .items[*]}{.status.containerStatuses[0].restartCount}{" "}{end}')
+  LONG=$(printf 'The quarterly report covers revenue, margins, regional growth and support tickets. %.0s' {1..90})
+  for i in 1 2; do
+    gate_url="$(pod_urls vllm-decode 1)"
+    kubectl -n inference exec deploy/bench-client -- curl -sf "$gate_url/v1/completions" -H 'Content-Type: application/json' \
+      -d "{\"model\":\"$SERVED_MODEL_NAME\",\"prompt\":\"$LONG Summarise in one word:\",\"max_tokens\":4}" >/dev/null \
+      || die "long-prompt request $i failed: the KV tier is not working (check vllm-decode-0 logs)"
+  done
+  sleep 5
+  RESTARTS_AFTER=$(kubectl -n inference get pods -l app=vllm -o jsonpath='{range .items[*]}{.status.containerStatuses[0].restartCount}{" "}{end}')
+  [ "$RESTARTS_BEFORE" = "$RESTARTS_AFTER" ] || die "a vLLM pod restarted during the KV-tier check (restarts $RESTARTS_BEFORE -> $RESTARTS_AFTER)"
+  kubectl -n inference logs vllm-decode-0 --since=2m | grep -iE "LMCache hit tokens|Stored|retriev" | tail -3 || true
 fi
 pass "config $CFG vLLM pools are Ready and answer completions"

@@ -59,14 +59,20 @@ if [ "$RUN_SHAREGPT" = "true" ] && [ ! -f "$BENCH_DIR/ShareGPT_V3_unfiltered_cle
     https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered/resolve/main/ShareGPT_V3_unfiltered_cleaned_split.json
 fi
 
+# Label results by what was actually deployed. Config C is defined with the KV tier;
+# C without it is a different stack, so its results are kept apart as C-nokv.
+result_label() {
+  if [ "$1" = "C" ] && [ "${ENABLE_KV_TIER_C:-true}" != "true" ]; then echo "C-nokv"; else echo "$1"; fi
+}
+
 run_pattern() {
   local cfg="$1" pattern="$2" ep="$3" key="$4"; shift 4
   local targets=("$@")
-  local tag="${cfg}_${pattern}"
+  local tag; tag="$(result_label "$cfg")_${pattern}"
   local prev="$OUT/results_${tag}.json"
   if [ -f "$prev" ] && [ "${FORCE:-false}" != "true" ]; then
     # Reuse a result only if it is healthy AND was measured on the stack that is
-    # deployed now (.active_config is rewritten by every set_config / Phase 6).
+    # deployed now (.active_config is rewritten by every pool deploy: Phase 5, set_config, Phase 6).
     if ! jq -e '(.completed // 0) > 0 and (.failed // 0) == 0 and (.completed >= (.num_prompts // .completed))' \
          "$prev" >/dev/null 2>&1; then
       warn "re-running $tag: the previous result has failed or missing requests"
@@ -99,7 +105,7 @@ run_pattern() {
         --num-prompts 250 --request-rate 4 2>&1 | tee "$OUT/log_${tag}.txt" | { grep -vE '^\s*[0-9]+%|it/s' || true; } ;;
   esac
   "${BX[@]}" python3 /scripts/scrape_metrics.py --out "$RESULTS/metrics_${tag}_after.txt" "${targets[@]}"
-  if [ "$cfg" = "C" ]; then   # Mooncake evidence for the ablation table
+  if [ "$(result_label "$cfg")" = "C" ]; then   # Mooncake evidence for the ablation table
     kubectl -n kv-tier logs deploy/mooncake-master --since=30m > "$OUT/mooncake_master_${tag}.log" 2>&1 || true
   fi
   sleep 10   # let queues drain between runs

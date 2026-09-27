@@ -1,0 +1,6 @@
+multi-turn: 100 ok / 0 failed in 20.3s | TTFT p95 311 ms | ITL p95 27.1 ms | 631 out tok/s
+  turn 1: prompt ~1443 tok, mean TTFT 278 ms
+  turn 2: prompt ~1609 tok, mean TTFT 191 ms
+  turn 3: prompt ~1774 tok, mean TTFT 207 ms
+  turn 4: prompt ~1940 tok, mean TTFT 207 ms
+  turn 5: prompt ~2106 tok, mean TTFT 215 ms

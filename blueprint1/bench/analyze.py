@@ -94,7 +94,7 @@ def main() -> None:
 
     rows = []
     for f in sorted(rdir.glob("results_*_*.json")):
-        m = re.match(r"results_([A-Z])_(\w+)\.json$", f.name)
+        m = re.match(r"results_([A-Z](?:-[a-z0-9]+)?)_([A-Za-z0-9]+)\.json$", f.name)
         if not m:
             continue
         cfg, pattern = m.groups()
@@ -120,7 +120,8 @@ def main() -> None:
         m = re.fullmatch(r"rate(\d+(?:\.\d+)?)", p)
         return (0.5, float(m.group(1)), p) if m else (99, 0.0, p)
 
-    rows.sort(key=lambda x: (pattern_key(x["pattern"]), x["config"]))
+    config_order = {"A": 0, "B": 1, "C-nokv": 2, "C": 3}
+    rows.sort(key=lambda x: (pattern_key(x["pattern"]), config_order.get(x["config"], 9), x["config"]))
     present = sorted({x["pattern"] for x in rows}, key=pattern_key)
 
     md = ["# Blueprint 1 — ablation results", "",
@@ -139,7 +140,8 @@ def main() -> None:
     md += ["", "## Layer contribution (relative change)", "",
            "| Pattern | Step | TTFT p95 | ITL p95 | Out tok/s |", "|---|---|---|---|---|"]
     for p in present:
-        for a, b in (("A", "B"), ("B", "C")):
+        # B -> C-nokv: P/D split + kv_router; C-nokv -> C: the LMCache/Mooncake KV tier alone.
+        for a, b in (("A", "B"), ("B", "C"), ("B", "C-nokv"), ("C-nokv", "C")):
             if (a, p) in by and (b, p) in by:
                 xa, xb = by[(a, p)], by[(b, p)]
 
