@@ -19,6 +19,7 @@
 - [Part 2. Capacity on paper](#part-2-capacity-on-paper)
 - [Part 3. Benchmarks: rate4 and rateinf](#part-3-benchmarks-rate4-and-rateinf)
 - [Part 4. Validation with agent runs](#part-4-validation-with-agent-runs)
+- [Exhibits. Grafana screenshots](#exhibits-grafana-screenshots)
 - [Appendix. Reproducing the runs](#appendix-reproducing-the-runs)
 
 ---
@@ -230,7 +231,7 @@ The configured maximum is 16,384 tokens (prompt plus output); every pod holds at
 | GPU prefix-cache hit rate | 0.1% | 23.8% | |
 | Prompt tokens served from the KV tier | – | 32.8% | |
 | Preemptions | 2 | 0 | |
-| Router queue peak (Grafana, without KV tier) | ≈ 210 | – | |
+| Router queue peak (Grafana) | ≈ 210 | ≈ 205 | |
 
 **Table 8.** multiturn: 100 requests (20 sessions × 5 turns).
 
@@ -259,7 +260,7 @@ With the KV tier, throughput and streaming speed are unchanged, but **time to fi
 
 ### 3.4 A 400-request burst (rateinf)
 
-The burst shows the admission design working as sized in Part 2. About 190 requests were admitted at once (running requests reached ≈ 60 per decode pod), and the router queue peaked at ≈ 210, which is 400 minus the admitted requests (Figure 9). vLLM's own waiting count stayed near zero (Figure 6). Every request completed.
+The burst shows the admission design working as sized in Part 2. About 190 requests were admitted at once (running requests reached ≈ 60 per decode pod), and the router queue peaked at ≈ 210, which is 400 minus the admitted requests (Exhibit D). vLLM's own waiting count stayed near zero (Exhibit B). Every request completed.
 
 ![400-request burst, without and with the KV tier](../charts/burst-latency-kv-tier.png)
 
@@ -268,14 +269,14 @@ The burst shows the admission design working as sized in Part 2. About 190 reque
 With the KV tier, the burst ran faster:
 
 - **Throughput +9%** (2,424 → 2,646 output tokens/s), and the burst finished in 19.3 s instead of 21.1 s.
-- **Inter-token latency fell sharply:** mean −41%, p95 −80% (197 → 40 ms). Without the tier, the p95 was dominated by the pod with the smallest KV cache (Figure 5).
+- **Inter-token latency fell sharply:** mean −41%, p95 −80% (197 → 40 ms). Without the tier, the p95 was dominated by the pod with the smallest KV cache (Exhibit A).
 - **Median end-to-end latency −19%** (17.7 → 14.3 s); p95 unchanged, because the last requests still waited for a free slot.
 - **Preemptions 2 → 0.**
 - **TTFT** changed little (p50 −9%, p95 +7%). It is dominated by time in the router queue: about 210 requests wait for the first wave to finish.
 
 **Attribution.** Two other differences between the runs favour the KV-tier run, so its gain is an upper bound on what the tier itself contributes:
 
-1. **More even GPU memory.** Without the tier, `vllm-decode-2` had 39,440 tokens of KV against 72,128 on its peers; it was the pod whose KV usage reached ≈ 80%, that was preempted, and whose inter-token latency spiked (Figures 5–6). With the tier, all three decode pods had 72,128 tokens.
+1. **More even GPU memory.** Without the tier, `vllm-decode-2` had 39,440 tokens of KV against 72,128 on its peers; it was the pod whose KV usage reached ≈ 80%, that was preempted, and whose inter-token latency spiked (Exhibits A–B). With the tier, all three decode pods had 72,128 tokens.
 2. **Prompt reuse between runs.** The benchmark's prompts come from a fixed seed, so the burst repeats the earlier rate4 prompts. With the tier, the burst ran 4 minutes after rate4 and found 23.8% of prompt tokens in the GPU prefix cache and 32.8% in the KV tier; without the tier it ran an hour after rate4, after other traffic had cleared the cache, and found 0.1%.
 
 A clean attribution needs both variants deployed the same way (pods started one at a time) and the burst run with a fresh seed.
@@ -292,15 +293,7 @@ With the KV tier, every turn is slower (+29% to +55%). The GPU prefix cache alre
 
 ### 3.6 Grafana views
 
-The dashboard captures cover 16:22–16:52, **on the stack without the KV tier**. Three bursts are visible: the agent evaluation at concurrency 4 (≈ 16:28–16:30), at concurrency 8 (≈ 16:34–16:35), and the 400-request rateinf burst (≈ 16:40–16:41).
-
-![Latency and throughput](../screenshots/grafana/2026-09-26_latency-and-throughput.png)
-
-*Figure 5. Latency and throughput per pod. The burst drives TTFT p95 to ≈ 6 s and inter-token p95 to ≈ 280 ms on `vllm-decode-2`; the agent runs stay sub-second. The throughput panels use a 1-minute rate, which spreads out the 21-second burst, so their ≈ 1.1k tokens/s peak under-reads the measured 2,424 tokens/s.*
-
-![KV cache and scheduling](../screenshots/grafana/2026-09-26_kv-cache-and-scheduling.png)
-
-*Figure 6. Prefix-cache hit rate holds at 85–95% through the agent runs and falls to ≈ 0 for the random-prompt burst. At the burst, running requests reach ≈ 60 per pod while vLLM's waiting count stays near 0; KV usage and preemptions peak on `vllm-decode-2`, the pod with the smallest KV cache.*
+Dashboard screenshots of both stacks are in the [Exhibits](#exhibits-grafana-screenshots). Without the KV tier (16:22–16:52), the bursts are the agent evaluation at concurrency 4 (≈ 16:28) and 8 (≈ 16:34) and the 400-request rateinf burst (≈ 16:40). With the KV tier (18:22–18:52), they are rate4 (≈ 18:30), multiturn (≈ 18:31) and rateinf (≈ 18:34).
 
 ---
 
@@ -339,7 +332,7 @@ Each run changed one thing, based on what the previous run's traces showed.
 
 ![Agent run outcomes](../charts/agent-run-outcomes.png)
 
-*Figure 7. Outcome of each question per run, by failure reason. Mechanical failures (tool calls written as text, answers with no SQL) disappear by run 2; runs 3–4 fail mostly on wrong values, plus runs that used up their guardrail retries.*
+*Figure 5. Outcome of each question per run, by failure reason. Mechanical failures (tool calls written as text, answers with no SQL) disappear by run 2; runs 3–4 fail mostly on wrong values, plus runs that used up their guardrail retries.*
 
 ### 4.3 Why answers were wrong, and what fixed it
 
@@ -374,19 +367,11 @@ After the fixes, four questions are reliably correct (q01, q02, q11, q12) and tw
 
 ### 4.4 Cluster behaviour under agent load
 
-- **Agent traffic is prefill-heavy and highly cacheable.** Each call sent ≈ 1.6k prompt tokens and received ≈ 64 (26:1), and consecutive calls re-send the same growing conversation. The GPU prefix-cache hit rate reached 89–93%, and `kv_router`'s prefix-match ratio held at ≈ 90% (Figure 8): conversations stayed on the pod that already had their prefix.
-- **Latency stayed flat.** vLLM's mean TTFT was 75–84 ms in every run; inter-token p95 stayed around 25–40 ms (Figure 5).
+- **Agent traffic is prefill-heavy and highly cacheable.** Each call sent ≈ 1.6k prompt tokens and received ≈ 64 (26:1), and consecutive calls re-send the same growing conversation. The GPU prefix-cache hit rate reached 89–93%, and `kv_router`'s prefix-match ratio held at ≈ 90% (Exhibit C): conversations stayed on the pod that already had their prefix.
+- **Latency stayed flat.** vLLM's mean TTFT was 75–84 ms in every run; inter-token p95 stayed around 25–40 ms (Exhibit A).
 - **Doubling concurrency doubled throughput.** From 4 to 8 concurrent questions, throughput rose from 5.4 to 10.5 questions/min and offered prompt load from 4.8k to 8.3k tokens/s, while the median time per question stayed at ≈ 32 s. The cluster was far from saturation.
-- **The admission queue stayed at 0.** Each crew waits for every reply before its next call, so 8 concurrent questions put at most 8 requests in flight against 192 slots (≈ 3 per pod; running requests ≤ 5 per pod in Figure 6). A question's ≈ 33 s is mostly its ≈ 30 sequential LLM round trips, not waiting for the GPU.
+- **The admission queue stayed at 0.** Each crew waits for every reply before its next call, so 8 concurrent questions put at most 8 requests in flight against 192 slots (≈ 3 per pod; running requests ≤ 5 per pod in Exhibit B). A question's ≈ 33 s is mostly its ≈ 30 sequential LLM round trips, not waiting for the GPU.
 - **One tool call per reply trades more calls for reliability.** LLM calls per question roughly doubled (17.8 → 32.3), yet wall time fell (62 → 33 s p50) because each reply is short and no longer fails. For the cluster this means more, smaller, highly cacheable requests.
-
-![Router and GPU](../screenshots/grafana/2026-09-26_router-and-gpu.png)
-
-*Figure 8. Router views (stack without the KV tier). Requests spread across the three decode pods; `kv_router`'s prefix-match ratio holds at ≈ 90% for agent traffic and drops for the random-prompt burst. The GPU utilisation panel is empty because DCGM metrics were not collected.*
-
-![Admission queue](../screenshots/grafana/2026-09-26_admission-queue.png)
-
-*Figure 9. Admission queue (stack without the KV tier). Only the 400-request burst at 16:40 queues (≈ 210); the agent runs never do. The queue-wait panel misses the burst because the router's wait counters are created on first use, so Prometheus's first sample already includes it.*
 
 ### 4.5 Conclusions and next steps
 
@@ -396,6 +381,52 @@ After the fixes, four questions are reliably correct (q01, q02, q11, q12) and tw
 - **Run the agent evaluation with the KV tier.** Agent traffic (≈ 1.6k-token prompts, 26:1 prompt-to-output ratio, heavy reuse) is the workload the tier is designed for, and the runs above predate it.
 - **Make the comparison clean.** Deploy both variants the same way (pods started one at a time, so KV allocation is even), use a fresh seed for the burst, and repeat each run.
 - **Complete the ablation.** Run configurations A (one pod, no router) and B (decode pods with `sglang_router`) with the same benchmarks and agent evaluation, and fix DCGM collection so GPU utilisation can be reported.
+
+---
+
+## Exhibits. Grafana screenshots
+
+Dashboard "Blueprint 1 — Inference stack", 30-minute windows on 26 September 2026.
+
+### Exhibit A. Latency and throughput
+
+![Latency and throughput, without KV tier](../screenshots/grafana/2026-09-26_without-kv-tier_latency-and-throughput.png)
+
+*Without KV tier.*
+
+![Latency and throughput, with KV tier](../screenshots/grafana/2026-09-26_with-kv-tier_latency-and-throughput.png)
+
+*With KV tier.*
+
+### Exhibit B. KV cache and scheduling
+
+![KV cache and scheduling, without KV tier](../screenshots/grafana/2026-09-26_without-kv-tier_kv-cache-and-scheduling.png)
+
+*Without KV tier.*
+
+![KV cache and scheduling, with KV tier](../screenshots/grafana/2026-09-26_with-kv-tier_kv-cache-and-scheduling.png)
+
+*With KV tier.*
+
+### Exhibit C. Router and GPU
+
+![Router and GPU, without KV tier](../screenshots/grafana/2026-09-26_without-kv-tier_router-and-gpu.png)
+
+*Without KV tier.*
+
+![Router and GPU, with KV tier](../screenshots/grafana/2026-09-26_with-kv-tier_router-and-gpu.png)
+
+*With KV tier.*
+
+### Exhibit D. Admission queue
+
+![Admission queue, without KV tier](../screenshots/grafana/2026-09-26_without-kv-tier_admission-queue.png)
+
+*Without KV tier.*
+
+![Admission queue, with KV tier](../screenshots/grafana/2026-09-26_with-kv-tier_admission-queue.png)
+
+*With KV tier.*
 
 ---
 

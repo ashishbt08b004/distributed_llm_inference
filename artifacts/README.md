@@ -34,25 +34,49 @@ Diagrams, screenshots, charts and documents for the project, in formats GitHub d
 
 Editable sources: [`blueprint1-architecture.svg`](diagrams/blueprint1-architecture.svg), [`analyst-crew-architecture.svg`](diagrams/analyst-crew-architecture.svg), [`blueprint2-architecture.svg`](diagrams/blueprint2-architecture.svg).
 
-## Grafana screenshots, 26 Sep 2026 (16:22–16:52)
+## Grafana screenshots, 26 Sep 2026
 
-Dashboard "Blueprint 1 — Inference stack", configuration C with the Mooncake KV tier off. Three bursts are visible: the agent evaluation at concurrency 4 (≈ 16:28–16:30), at concurrency 8 (≈ 16:34–16:35), and the 400-request `rateinf` burst (≈ 16:40–16:41).
+Dashboard "Blueprint 1 — Inference stack", 30-minute windows. Without the KV tier (16:22–16:52): agent evaluation at concurrency 4 (≈ 16:28) and 8 (≈ 16:34), then the 400-request `rateinf` burst (≈ 16:40). With the KV tier (18:22–18:52): `rate4` (≈ 18:30), `multiturn` (≈ 18:31), `rateinf` (≈ 18:34).
 
-**Latency and throughput per pod.** The burst drives TTFT p95 to ≈ 6 s and inter-token p95 to ≈ 280 ms; the agent runs stay sub-second.
+### Latency and throughput
 
-![Latency and throughput](screenshots/grafana/2026-09-26_latency-and-throughput.png)
+Without KV tier:
 
-**KV cache and scheduling.** Prefix-cache hit rate holds at 85–95% during the agent runs. At the burst, running requests reach ≈ 60 per pod while vLLM's waiting count stays near 0; KV usage and preemptions peak on `vllm-decode-2`, the pod with the smallest KV cache.
+![Latency and throughput, without KV tier](screenshots/grafana/2026-09-26_without-kv-tier_latency-and-throughput.png)
 
-![KV cache and scheduling](screenshots/grafana/2026-09-26_kv-cache-and-scheduling.png)
+With KV tier:
 
-**Router and GPU.** Requests spread across the three decode pods; `kv_router`'s prefix-match ratio is ≈ 90% for agent traffic. The GPU panel is empty because DCGM metrics were not being collected.
+![Latency and throughput, with KV tier](screenshots/grafana/2026-09-26_with-kv-tier_latency-and-throughput.png)
 
-![Router and GPU](screenshots/grafana/2026-09-26_router-and-gpu.png)
+### KV cache and scheduling
 
-**Admission queue.** Only the 400-request burst queues (peak ≈ 210); the agent runs never do. The queue-wait panel misses the burst because the router's wait counters appear only on first use.
+Without KV tier:
 
-![Admission queue](screenshots/grafana/2026-09-26_admission-queue.png)
+![KV cache and scheduling, without KV tier](screenshots/grafana/2026-09-26_without-kv-tier_kv-cache-and-scheduling.png)
+
+With KV tier:
+
+![KV cache and scheduling, with KV tier](screenshots/grafana/2026-09-26_with-kv-tier_kv-cache-and-scheduling.png)
+
+### Router and GPU
+
+Without KV tier:
+
+![Router and GPU, without KV tier](screenshots/grafana/2026-09-26_without-kv-tier_router-and-gpu.png)
+
+With KV tier:
+
+![Router and GPU, with KV tier](screenshots/grafana/2026-09-26_with-kv-tier_router-and-gpu.png)
+
+### Admission queue
+
+Without KV tier:
+
+![Admission queue, without KV tier](screenshots/grafana/2026-09-26_without-kv-tier_admission-queue.png)
+
+With KV tier:
+
+![Admission queue, with KV tier](screenshots/grafana/2026-09-26_with-kv-tier_admission-queue.png)
 
 ## Charts
 
