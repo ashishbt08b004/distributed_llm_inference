@@ -1,0 +1,238 @@
+<svg viewBox="0 0 1400 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Excalidraw-style rough filter -->
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.6"/>
+    </filter>
+    <filter id="roughLine" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="3"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.2"/>
+    </filter>
+    <marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 0 L 11 6 L 0 12 Z" fill="#3d3d3d"/>
+    </marker>
+    <marker id="arrKV" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 0 L 11 6 L 0 12 Z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrOrange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 0 L 11 6 L 0 12 Z" fill="#c2410c"/>
+    </marker>
+    <marker id="arrBigOrange" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto">
+      <path d="M 0 0 L 15 8 L 0 16 Z" fill="#c2410c" stroke="#7c2d12" stroke-width="0.5"/>
+    </marker>
+    <marker id="arrScrape" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 9 5 L 0 10 Z" fill="#0369a1"/>
+    </marker>
+    <marker id="arrPush" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 9 5 L 0 10 Z" fill="#9d174d"/>
+    </marker>
+    <marker id="arrGrey" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 9 5 L 0 10 Z" fill="#57534e"/>
+    </marker>
+    <marker id="arrGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 9 5 L 0 10 Z" fill="#15803d"/>
+    </marker>
+  </defs>
+
+  <!-- Paper background -->
+  <rect width="1400" height="1080" fill="#fdfaf6"/>
+
+  <style>
+    .hw { font-family: 'Kalam', 'Virgil', 'Comic Sans MS', 'Segoe Print', 'Bradley Hand', cursive, sans-serif; }
+    .code { font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace; }
+  </style>
+
+  <!-- ============ TITLE ============ -->
+  <g class="hw" transform="rotate(-0.3, 700, 45)">
+    <text x="700" y="48" text-anchor="middle" font-size="32" font-weight="700" fill="#1e1e1e">Analyst Crew — CrewAI agents on the Blueprint 1 cluster</text>
+  </g>
+  <g class="hw" transform="rotate(0.2, 700, 82)">
+    <text x="700" y="82" text-anchor="middle" font-size="16" fill="#57534e" font-style="italic">3 agents · 9 local tools · up to ~45 tool calls per question · every answer graded against ground truth</text>
+  </g>
+
+  <!-- ============ LAPTOP ============ -->
+  <g filter="url(#rough)"><rect x="40" y="108" width="862" height="800" rx="16" fill="none" stroke="#57534e" stroke-width="2" stroke-dasharray="9,5"/></g>
+  <text x="60" y="128" text-anchor="start" class="hw" font-size="14" fill="#1c1917" font-weight="700">💻 Laptop — analyst_crew/  (Python 3.12 · pip install crewai · no DB server)</text>
+
+  <!-- row 1: data + runner -->
+  <g filter="url(#rough)"><rect x="65" y="145" width="165" height="78" rx="12" fill="#d1fae5" stroke="#065f46" stroke-width="2.5"/></g>
+  <text x="147" y="172" text-anchor="middle" class="hw" font-size="15" fill="#1e1e1e" font-weight="700">🗄️ data/shop.db</text>
+  <text x="147" y="192" text-anchor="middle" class="hw" font-size="11" fill="#065f46">SQLite · 500 customers</text>
+  <text x="147" y="208" text-anchor="middle" class="hw" font-size="11" fill="#065f46">3.7k orders · 1.5k tickets</text>
+  <g filter="url(#rough)"><rect x="270" y="145" width="165" height="78" rx="12" fill="#f5f5f4" stroke="#57534e" stroke-width="2.5"/></g>
+  <text x="352" y="172" text-anchor="middle" class="hw" font-size="15" fill="#1e1e1e" font-weight="700">🏭 make_data.py</text>
+  <text x="352" y="192" text-anchor="middle" class="hw" font-size="11" fill="#57534e">seeded · stdlib only</text>
+  <text x="352" y="208" text-anchor="middle" class="hw" font-size="11" fill="#57534e" font-style="italic">traps on purpose</text>
+  <g filter="url(#roughLine)"><path d="M 270 184 L 236 184" stroke="#57534e" stroke-width="2" fill="none" marker-end="url(#arrGrey)"/></g>
+  <g filter="url(#roughLine)"><path d="M 435 184 L 469 184" stroke="#57534e" stroke-width="2" fill="none" marker-end="url(#arrGrey)"/></g>
+  <g filter="url(#rough)"><rect x="475" y="145" width="175" height="78" rx="12" fill="#fef9c3" stroke="#78350f" stroke-width="2.5"/></g>
+  <text x="562" y="172" text-anchor="middle" class="hw" font-size="15" fill="#1e1e1e" font-weight="700">❓ questions.json</text>
+  <text x="562" y="192" text-anchor="middle" class="hw" font-size="11" fill="#78350f">12 questions, easy → hard</text>
+  <text x="562" y="208" text-anchor="middle" class="hw" font-size="11" fill="#78350f">+ ground-truth answers</text>
+  <g filter="url(#roughLine)"><path d="M 650 184 L 684 184" stroke="#57534e" stroke-width="2" fill="none" marker-end="url(#arrGrey)"/></g>
+  <g filter="url(#rough)"><rect x="690" y="140" width="190" height="88" rx="12" fill="#ede9fe" stroke="#5b21b6" stroke-width="2.5"/></g>
+  <text x="785" y="164" text-anchor="middle" class="hw" font-size="16" fill="#1e1e1e" font-weight="700">🏃 run.py eval</text>
+  <text x="785" y="183" text-anchor="middle" class="hw" font-size="11" fill="#5b21b6" font-weight="600">N crews in parallel</text>
+  <text x="785" y="199" text-anchor="middle" class="hw" font-size="11" fill="#57534e">1 subprocess per question</text>
+  <text x="785" y="215" text-anchor="middle" class="code" font-size="10" fill="#57534e">--concurrency · --repeat</text>
+  <g filter="url(#roughLine)"><path d="M 785 228 L 785 262" stroke="#5b21b6" stroke-width="2.2" fill="none" marker-end="url(#arrGrey)"/></g>
+  <text x="795" y="250" text-anchor="start" class="hw" font-size="11" fill="#5b21b6" font-weight="700" font-style="italic">kickoff ×N</text>
+
+  <!-- row 2: the crew -->
+  <g filter="url(#rough)"><rect x="65" y="268" width="815" height="292" rx="14" fill="#fffbeb" stroke="#b45309" stroke-width="2.2" stroke-dasharray="10,4"/></g>
+  <text x="85" y="291" text-anchor="start" class="hw" font-size="17" fill="#78350f" font-weight="700">🤝 Crew — sequential process (crew.py)</text>
+  <text x="860" y="291" text-anchor="end" class="hw" font-size="12" fill="#c2410c" font-weight="700" font-style="italic">every ① below is an HTTP call to the cluster  →</text>
+  <g filter="url(#rough)"><rect x="90" y="305" width="235" height="150" rx="12" fill="#fef3c7" stroke="#b45309" stroke-width="2.5"/></g>
+  <text x="207" y="330" text-anchor="middle" class="hw" font-size="17" fill="#1e1e1e" font-weight="700">🗺️ Data Planner</text>
+  <text x="207" y="349" text-anchor="middle" class="hw" font-size="11" fill="#b45309" font-style="italic">explores before anyone queries</text>
+  <text x="207" y="372" text-anchor="middle" class="code" font-size="10" fill="#44403c">list_tables · describe_table</text>
+  <text x="207" y="387" text-anchor="middle" class="code" font-size="10" fill="#44403c">sample_rows · distinct_values</text>
+  <text x="207" y="402" text-anchor="middle" class="code" font-size="10" fill="#44403c">save_note</text>
+  <text x="207" y="437" text-anchor="middle" class="hw" font-size="12" fill="#1e1e1e" font-weight="700">→ query plan</text>
+  <g filter="url(#rough)"><rect x="345" y="305" width="235" height="150" rx="12" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/></g>
+  <text x="462" y="330" text-anchor="middle" class="hw" font-size="17" fill="#1e1e1e" font-weight="700">🧮 SQL Analyst</text>
+  <text x="462" y="349" text-anchor="middle" class="hw" font-size="11" fill="#0369a1" font-style="italic">runs, checks &amp; fixes SQL</text>
+  <text x="462" y="372" text-anchor="middle" class="code" font-size="10" fill="#44403c">run_sql · column_stats</text>
+  <text x="462" y="387" text-anchor="middle" class="code" font-size="10" fill="#44403c">calculator · describe_table</text>
+  <text x="462" y="402" text-anchor="middle" class="code" font-size="10" fill="#44403c">save_note · read_notes</text>
+  <text x="462" y="437" text-anchor="middle" class="hw" font-size="12" fill="#1e1e1e" font-weight="700">→ answer + SQL</text>
+  <g filter="url(#rough)"><rect x="600" y="305" width="235" height="150" rx="12" fill="#dcfce7" stroke="#15803d" stroke-width="2.5"/></g>
+  <text x="717" y="330" text-anchor="middle" class="hw" font-size="17" fill="#1e1e1e" font-weight="700">🔍 Reviewer</text>
+  <text x="717" y="349" text-anchor="middle" class="hw" font-size="11" fill="#15803d" font-style="italic">reproduces it a 2nd way</text>
+  <text x="717" y="372" text-anchor="middle" class="code" font-size="10" fill="#44403c">run_sql · column_stats</text>
+  <text x="717" y="387" text-anchor="middle" class="code" font-size="10" fill="#44403c">calculator · read_notes</text>
+  <text x="717" y="437" text-anchor="middle" class="hw" font-size="12" fill="#1e1e1e" font-weight="700">→ FINAL_ANSWER: &lt;value&gt;</text>
+  <!-- hand-off arrows between agents -->
+  <g><path d="M 327 380 L 343 380" stroke="#b45309" stroke-width="2.5" fill="none" marker-end="url(#arrOrange)"/></g>
+  <g><path d="M 582 380 L 598 380" stroke="#b45309" stroke-width="2.5" fill="none" marker-end="url(#arrOrange)"/></g>
+  <text x="335" y="470" text-anchor="middle" class="hw" font-size="10" fill="#92400e" font-style="italic">plan as context</text>
+  <text x="590" y="470" text-anchor="middle" class="hw" font-size="10" fill="#92400e" font-style="italic">answer + SQL as context</text>
+
+  <!-- the per-step loop that generates the tool calls -->
+  <g filter="url(#rough)"><rect x="90" y="480" width="765" height="74" rx="10" fill="#ffffff" stroke="#b45309" stroke-width="1.6" stroke-dasharray="5,3"/></g>
+  <text x="170" y="503" text-anchor="middle" class="hw" font-size="13" fill="#78350f" font-weight="700">① LLM call</text>
+  <text x="170" y="520" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">system + tools + history</text>
+  <g><path d="M 242 498 L 273 498" stroke="#b45309" stroke-width="1.6" fill="none" marker-end="url(#arrOrange)"/></g>
+  <text x="345" y="503" text-anchor="middle" class="hw" font-size="13" fill="#78350f" font-weight="700">② tool_calls</text>
+  <text x="345" y="520" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">model picks tool + args</text>
+  <g><path d="M 417 498 L 448 498" stroke="#b45309" stroke-width="1.6" fill="none" marker-end="url(#arrOrange)"/></g>
+  <text x="520" y="503" text-anchor="middle" class="hw" font-size="13" fill="#78350f" font-weight="700">③ run tool locally</text>
+  <text x="520" y="520" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">SQL / calc / notes</text>
+  <g><path d="M 592 498 L 633 498" stroke="#b45309" stroke-width="1.6" fill="none" marker-end="url(#arrOrange)"/></g>
+  <text x="705" y="503" text-anchor="middle" class="hw" font-size="13" fill="#78350f" font-weight="700">④ append result</text>
+  <text x="705" y="520" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">history grows → ①</text>
+  <g><path d="M 780 506 Q 846 506 846 530 Q 846 548 470 548 Q 96 548 96 530 Q 96 506 100 504" stroke="#b45309" stroke-width="1.3" fill="none" stroke-dasharray="4,3" marker-end="url(#arrOrange)"/></g>
+  <text x="470" y="538" text-anchor="middle" class="hw" font-size="10" fill="#92400e" font-style="italic">≤ AGENT_MAX_ITER (15) steps per agent · the prompt prefix never changes → prefix-cache hits on the cluster</text>
+
+  <!-- row 3: tools -->
+  <g filter="url(#roughLine)"><path d="M 267 560 L 267 598" stroke="#3d3d3d" stroke-width="2.2" fill="none" marker-end="url(#arr)"/></g>
+  <text x="277" y="585" text-anchor="start" class="hw" font-size="11" fill="#3d3d3d" font-weight="700" font-style="italic">tool calls run on the laptop</text>
+  <g filter="url(#rough)"><rect x="65" y="603" width="420" height="280" rx="12" fill="#f5f5f4" stroke="#57534e" stroke-width="2.5"/></g>
+  <text x="275" y="630" text-anchor="middle" class="hw" font-size="17" fill="#1e1e1e" font-weight="700">🧰 tools.py — 9 local tools</text>
+  <text x="135" y="660" text-anchor="middle" class="hw" font-size="13" fill="#065f46" font-weight="700">explore</text>
+  <g filter="url(#rough)"><rect x="73" y="671" width="124" height="26" rx="6" fill="#ffffff" stroke="#065f46" stroke-width="1.5"/></g>
+  <text x="135" y="689" text-anchor="middle" class="code" font-size="11" fill="#1e1e1e">list_tables</text>
+  <g filter="url(#rough)"><rect x="73" y="705" width="124" height="26" rx="6" fill="#ffffff" stroke="#065f46" stroke-width="1.5"/></g>
+  <text x="135" y="723" text-anchor="middle" class="code" font-size="11" fill="#1e1e1e">describe_table</text>
+  <g filter="url(#rough)"><rect x="73" y="739" width="124" height="26" rx="6" fill="#ffffff" stroke="#065f46" stroke-width="1.5"/></g>
+  <text x="135" y="757" text-anchor="middle" class="code" font-size="11" fill="#1e1e1e">sample_rows</text>
+  <g filter="url(#rough)"><rect x="73" y="773" width="124" height="26" rx="6" fill="#ffffff" stroke="#065f46" stroke-width="1.5"/></g>
+  <text x="135" y="791" text-anchor="middle" class="code" font-size="11" fill="#1e1e1e">distinct_values</text>
+  <text x="275" y="660" text-anchor="middle" class="hw" font-size="13" fill="#0369a1" font-weight="700">analyze</text>
+  <g filter="url(#rough)"><rect x="213" y="671" width="124" height="26" rx="6" fill="#ffffff" stroke="#0369a1" stroke-width="1.5"/></g>
+  <text x="275" y="689" text-anchor="middle" class="code" font-size="11" fill="#1e1e1e">run_sql  🔒</text>
+  <g filter="url(#rough)"><rect x="213" y="705" width="124" height="26" rx="6" fill="#ffffff" stroke="#0369a1" stroke-width="1.5"/></g>
+  <text x="275" y="723" text-anchor="middle" class="code" font-size="11" fill="#1e1e1e">column_stats</text>
+  <g filter="url(#rough)"><rect x="213" y="739" width="124" height="26" rx="6" fill="#ffffff" stroke="#0369a1" stroke-width="1.5"/></g>
+  <text x="275" y="757" text-anchor="middle" class="code" font-size="11" fill="#1e1e1e">calculator</text>
+  <text x="415" y="660" text-anchor="middle" class="hw" font-size="13" fill="#9d174d" font-weight="700">scratchpad</text>
+  <g filter="url(#rough)"><rect x="353" y="671" width="124" height="26" rx="6" fill="#ffffff" stroke="#9d174d" stroke-width="1.5"/></g>
+  <text x="415" y="689" text-anchor="middle" class="code" font-size="11" fill="#1e1e1e">save_note</text>
+  <g filter="url(#rough)"><rect x="353" y="705" width="124" height="26" rx="6" fill="#ffffff" stroke="#9d174d" stroke-width="1.5"/></g>
+  <text x="415" y="723" text-anchor="middle" class="code" font-size="11" fill="#1e1e1e">read_notes</text>
+  <text x="275" y="822" text-anchor="middle" class="hw" font-size="11" fill="#57534e">run_sql: one read-only SELECT · column_stats: median / p90</text>
+  <text x="275" y="840" text-anchor="middle" class="hw" font-size="11" fill="#57534e">calculator: AST, no eval() · errors come back as text → agent retries</text>
+  <text x="275" y="858" text-anchor="middle" class="hw" font-size="11" fill="#57534e" font-style="italic">outputs capped at 40 rows / 2k chars to protect the context window</text>
+  <text x="275" y="875" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">counted per call → tool-call totals in the report</text>
+  <g filter="url(#roughLine)"><path d="M 65 640 L 52 640 L 52 184 L 60 184" stroke="#065f46" stroke-width="2" fill="none" stroke-dasharray="6,3" marker-end="url(#arrGreen)"/></g>
+  <text x="47" y="420" text-anchor="middle" class="hw" font-size="11" fill="#065f46" font-weight="700" font-style="italic" transform="rotate(-90 47 420)">read-only SQLite (mode=ro)</text>
+
+  <!-- grader + report -->
+  <g filter="url(#roughLine)"><path d="M 727 560 L 727 598" stroke="#15803d" stroke-width="2.2" fill="none" marker-end="url(#arrGreen)"/></g>
+  <text x="737" y="585" text-anchor="start" class="code" font-size="11" fill="#15803d" font-weight="700">FINAL_ANSWER</text>
+  <g filter="url(#rough)"><rect x="520" y="603" width="360" height="100" rx="12" fill="#dcfce7" stroke="#15803d" stroke-width="2.5"/></g>
+  <text x="700" y="630" text-anchor="middle" class="hw" font-size="17" fill="#1e1e1e" font-weight="700">✅ Grader (run.py)</text>
+  <text x="700" y="652" text-anchor="middle" class="hw" font-size="12" fill="#15803d">parse the last FINAL_ANSWER line</text>
+  <text x="700" y="670" text-anchor="middle" class="hw" font-size="12" fill="#15803d">compare to questions.json ± tolerance</text>
+  <text x="700" y="690" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">numbers: relative tolerance · names: match</text>
+  <g filter="url(#roughLine)"><path d="M 700 703 L 700 738" stroke="#57534e" stroke-width="2" fill="none" marker-end="url(#arrGrey)"/></g>
+  <g filter="url(#rough)"><rect x="520" y="743" width="360" height="140" rx="12" fill="#dbeafe" stroke="#1e40af" stroke-width="2.5"/></g>
+  <text x="700" y="770" text-anchor="middle" class="hw" font-size="16" fill="#1e3a8a" font-weight="700">📊 runs/&lt;timestamp&gt;/summary.md</text>
+  <text x="700" y="792" text-anchor="middle" class="hw" font-size="12" fill="#1e40af">accuracy · tool calls · LLM calls per run</text>
+  <text x="700" y="810" text-anchor="middle" class="hw" font-size="12" fill="#1e40af">tokens in/out · wall-time p50 / p95</text>
+  <text x="700" y="828" text-anchor="middle" class="hw" font-size="12" fill="#1e40af" font-weight="700">+ cluster metrics over the run window</text>
+  <text x="700" y="846" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">LLM calls &amp; tokens: CrewAI event listener</text>
+  <text x="700" y="862" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">also results.jsonl + one .log per run</text>
+
+  <!-- ============ SSH TUNNEL ============ -->
+  <g filter="url(#rough)"><rect x="906" y="150" width="48" height="740" rx="10" fill="#f5f5f4" stroke="#57534e" stroke-width="1.6" stroke-dasharray="4,3"/></g>
+  <text x="936" y="520" text-anchor="middle" class="hw" font-size="13" fill="#1c1917" font-weight="700" transform="rotate(-90 936 520)">🔐 SSH tunnel — laptop.sh tunnel</text>
+
+  <!-- ============ LAMBDA NODE ============ -->
+  <g filter="url(#rough)"><rect x="960" y="108" width="400" height="800" rx="16" fill="none" stroke="#57534e" stroke-width="2" stroke-dasharray="9,5"/></g>
+  <text x="978" y="128" text-anchor="start" class="hw" font-size="14" fill="#1c1917" font-weight="700">🖥️ Lambda H100 node — Blueprint 1</text>
+  <g filter="url(#rough)"><rect x="985" y="150" width="350" height="80" rx="12" fill="#ede9fe" stroke="#5b21b6" stroke-width="2.5"/></g>
+  <text x="1160" y="177" text-anchor="middle" class="hw" font-size="17" fill="#1e1e1e" font-weight="700">🚪 LiteLLM gateway</text>
+  <text x="1160" y="197" text-anchor="middle" class="hw" font-size="11" fill="#5b21b6">auth (master key) · OpenAI API</text>
+  <text x="1160" y="214" text-anchor="middle" class="code" font-size="10" fill="#57534e">NodePort 30400 ← localhost:4000</text>
+  <g filter="url(#roughLine)"><path d="M 1160 230 L 1160 263" stroke="#c2410c" stroke-width="2.5" fill="none" marker-end="url(#arrOrange)"/></g>
+  <g filter="url(#rough)"><rect x="985" y="268" width="350" height="90" rx="12" fill="#fce7f3" stroke="#9d174d" stroke-width="2.5"/></g>
+  <text x="1160" y="294" text-anchor="middle" class="hw" font-size="16" fill="#1e1e1e" font-weight="700">⏳ admission queue → 🧠 kv_router</text>
+  <text x="1160" y="314" text-anchor="middle" class="hw" font-size="11" fill="#9d174d">bounded FIFO · 429 when full · 503 on timeout</text>
+  <text x="1160" y="331" text-anchor="middle" class="hw" font-size="11" fill="#0e7490" font-weight="600">agents' shared prefixes → same decode pod</text>
+  <text x="1160" y="347" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">(sglang_router in config B: no queue)</text>
+  <g filter="url(#roughLine)"><path d="M 1160 358 L 1160 393" stroke="#c2410c" stroke-width="2.5" fill="none" marker-end="url(#arrOrange)"/></g>
+  <g filter="url(#rough)"><rect x="985" y="398" width="350" height="150" rx="12" fill="#fee2e2" stroke="#b91c1c" stroke-width="2.5"/></g>
+  <text x="1160" y="424" text-anchor="middle" class="hw" font-size="16" fill="#1e1e1e" font-weight="700">🔥💧 vLLM pods ×5 (HAMi slices)</text>
+  <text x="1160" y="444" text-anchor="middle" class="hw" font-size="12" fill="#7f1d1d">Qwen2.5-7B-Instruct · FP8 · prefix cache</text>
+  <text x="1160" y="468" text-anchor="middle" class="code" font-size="11" fill="#44403c">--enable-auto-tool-choice</text>
+  <text x="1160" y="484" text-anchor="middle" class="code" font-size="11" fill="#44403c">--tool-call-parser hermes</text>
+  <text x="1160" y="500" text-anchor="middle" class="code" font-size="11" fill="#44403c">--max-model-len 16384</text>
+  <text x="1160" y="522" text-anchor="middle" class="hw" font-size="11" fill="#991b1b" font-style="italic">returns OpenAI tool_calls, not JSON text</text>
+  <text x="1160" y="538" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">2 prefill + 3 decode (config C)</text>
+  <g filter="url(#roughLine)"><path d="M 1110 548 L 1110 590" stroke="#1e40af" stroke-width="2.5" fill="none" stroke-dasharray="8,4" marker-end="url(#arrKV)"/></g>
+  <g filter="url(#roughLine)"><path d="M 1210 590 L 1210 548" stroke="#1e40af" stroke-width="2.5" fill="none" stroke-dasharray="8,4" marker-end="url(#arrKV)"/></g>
+  <g filter="url(#rough)"><rect x="985" y="595" width="350" height="62" rx="12" fill="#d1fae5" stroke="#065f46" stroke-width="2.5"/></g>
+  <text x="1160" y="620" text-anchor="middle" class="hw" font-size="15" fill="#064e3b" font-weight="700">🌙 Mooncake KV tier (LMCache)</text>
+  <text x="1160" y="640" text-anchor="middle" class="hw" font-size="11" fill="#065f46" font-style="italic">repeated agent prefixes reused across pods</text>
+  <g filter="url(#rough)"><rect x="985" y="700" width="350" height="110" rx="12" fill="#dbeafe" stroke="#1e40af" stroke-width="2.5"/></g>
+  <text x="1160" y="726" text-anchor="middle" class="hw" font-size="16" fill="#1e3a8a" font-weight="700">📊 Prometheus</text>
+  <text x="1160" y="746" text-anchor="middle" class="code" font-size="10" fill="#57534e">localhost:9090 via the tunnel</text>
+  <text x="1160" y="767" text-anchor="middle" class="hw" font-size="11" fill="#1e40af">kv_router_queue_depth · rejections</text>
+  <text x="1160" y="783" text-anchor="middle" class="hw" font-size="11" fill="#1e40af">vllm prefix hit rate · TTFT · preemptions</text>
+  <text x="1160" y="800" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">queried after each eval (--prometheus)</text>
+  <g filter="url(#roughLine)"><path d="M 1340 470 Q 1352 600 1340 740" stroke="#0369a1" stroke-width="1.5" fill="none" stroke-dasharray="3,3" marker-end="url(#arrScrape)"/></g>
+  <text x="1352" y="610" text-anchor="middle" class="hw" font-size="10" fill="#0369a1" font-style="italic" transform="rotate(90 1352 610)">scrape</text>
+
+  <!-- ============ LLM calls through the tunnel ============ -->
+  <g filter="url(#roughLine)"><path d="M 880 284 Q 926 284 926 232 Q 926 180 979 180" stroke="#c2410c" stroke-width="3.2" fill="none" marker-end="url(#arrBigOrange)"/></g>
+  <g filter="url(#roughLine)"><path d="M 979 206 Q 944 206 944 260 Q 944 300 886 300" stroke="#c2410c" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arrOrange)"/></g>
+
+  <!-- metrics back to the report -->
+  <g filter="url(#roughLine)"><path d="M 985 760 Q 930 760 930 800 Q 930 812 886 812" stroke="#0369a1" stroke-width="1.8" fill="none" stroke-dasharray="3,3" marker-end="url(#arrScrape)"/></g>
+  <text x="958" y="836" text-anchor="middle" class="code" font-size="10" fill="#0369a1" font-style="italic">--prometheus</text>
+
+  <!-- Legend (bottom-left) -->
+  <g transform="translate(60, 935)">
+    <text x="0" y="0" class="hw" font-size="12" font-weight="700" fill="#1c1917">Legend</text>
+    <g transform="translate(0, 12)"><line x1="0" y1="8" x2="30" y2="8" stroke="#c2410c" stroke-width="2.5" marker-end="url(#arrOrange)"/><text x="38" y="12" class="hw" font-size="11" fill="#1e1e1e">LLM request / response (through the gateway)</text></g>
+    <g transform="translate(330, 12)"><line x1="0" y1="8" x2="30" y2="8" stroke="#3d3d3d" stroke-width="2.2" marker-end="url(#arr)"/><text x="38" y="12" class="hw" font-size="11" fill="#1e1e1e">tool call, executed locally</text></g>
+    <g transform="translate(0, 32)"><line x1="0" y1="8" x2="30" y2="8" stroke="#1e40af" stroke-width="3" stroke-dasharray="6,3" marker-end="url(#arrKV)"/><text x="38" y="12" class="hw" font-size="11" fill="#1e1e1e">KV cache transfer</text></g>
+    <g transform="translate(330, 32)"><line x1="0" y1="8" x2="30" y2="8" stroke="#0369a1" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrScrape)"/><text x="38" y="12" class="hw" font-size="11" fill="#1e1e1e">metrics</text></g>
+  </g>
+
+  <!-- ============ FOUNDATION LABEL ============ -->
+  <g filter="url(#rough)"><rect x="60" y="1000" width="1280" height="40" rx="10" fill="#f5f5f4" stroke="#57534e" stroke-width="2" stroke-dasharray="8,4"/></g>
+  <text x="700" y="1026" text-anchor="middle" class="hw" font-size="13" fill="#1c1917" font-weight="700">▶ python run.py eval --repeat 3 --concurrency 8 --prometheus http://localhost:9090   ·   offline test: tests/test_local.sh (scripted fake LLM)</text>
+</svg>

@@ -1,0 +1,123 @@
+# Mooncake KV tier: master (RPC + embedded HTTP metadata server) and one store
+# node contributing ${MOONCAKE_STORE_GB} GB DRAM, spilling to the node's NVMe.
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mooncake-nvme
+spec:
+  capacity: { storage: 200Gi }
+  accessModes: ["ReadWriteOnce"]
+  hostPath: { path: ${MOONCAKE_DIR}, type: DirectoryOrCreate }
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-nvme
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mooncake-nvme
+  namespace: kv-tier
+spec:
+  accessModes: ["ReadWriteOnce"]
+  storageClassName: local-nvme
+  volumeName: mooncake-nvme
+  resources:
+    requests: { storage: 200Gi }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mooncake-master
+  namespace: kv-tier
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: mooncake, role: master } }
+  template:
+    metadata:
+      labels: { app: mooncake, role: master }
+    spec:
+      containers:
+      - name: master
+        image: ${APP_IMAGE}
+        imagePullPolicy: Never
+        command: ["/bin/bash", "-c"]
+        args:
+        - |
+          OFFLOAD=""
+          if [ "${MOONCAKE_ENABLE_OFFLOAD}" = "true" ]; then
+            OFFLOAD="--enable_offload=true --offload_on_evict=true"
+          fi
+          exec mooncake_master --rpc_port=50051 \
+            --enable_http_metadata_server=true \
+            --http_metadata_server_host=0.0.0.0 \
+            --http_metadata_server_port=8080 \
+            --eviction_high_watermark_ratio=0.90 $OFFLOAD
+        env:
+        # CPU-only, but the Mooncake wheel links libcuda.so.1. 'none' = no GPU devices,
+        # driver libraries still mounted. ('void' mounts nothing -> ImportError.)
+        - { name: NVIDIA_VISIBLE_DEVICES, value: none }
+        ports:
+        - { containerPort: 50051, name: rpc }
+        - { containerPort: 8080, name: metadata }
+        - { containerPort: 9003, name: metrics }
+        readinessProbe:
+          tcpSocket: { port: 50051 }
+          periodSeconds: 5
+        resources:
+          requests: { cpu: "500m", memory: "2Gi" }
+          limits:   { cpu: "2",    memory: "4Gi" }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mooncake-master
+  namespace: kv-tier
+spec:
+  selector: { app: mooncake, role: master }
+  ports:
+  - { name: rpc, port: 50051, targetPort: 50051 }
+  - { name: metadata, port: 8080, targetPort: 8080 }
+  - { name: metrics, port: 9003, targetPort: 9003 }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mooncake-store
+  namespace: kv-tier
+spec:
+  replicas: 1
+  strategy: { type: Recreate }
+  selector: { matchLabels: { app: mooncake, role: store } }
+  template:
+    metadata:
+      labels: { app: mooncake, role: store }
+    spec:
+      containers:
+      - name: store
+        image: ${APP_IMAGE}
+        imagePullPolicy: Never
+        command: ["python3", "/app/mooncake_store_node.py"]
+        env:
+        - { name: NVIDIA_VISIBLE_DEVICES, value: none }   # driver libs, no GPU (see master)
+        - name: POD_IP
+          valueFrom: { fieldRef: { fieldPath: status.podIP } }
+        - { name: MOONCAKE_MASTER_ADDR, value: "${MOONCAKE_MASTER_HOST}:50051" }
+        - { name: MOONCAKE_METADATA_SERVER, value: "http://${MOONCAKE_MASTER_HOST}:8080/metadata" }
+        - { name: MOONCAKE_STORE_GB, value: "${MOONCAKE_STORE_GB}" }
+        - { name: MOONCAKE_PROTOCOL, value: tcp }
+        - { name: MOONCAKE_OFFLOAD_FILE_STORAGE_PATH, value: /data }
+        ports:
+        - { containerPort: 8081, name: health }
+        readinessProbe:
+          httpGet: { path: /health, port: 8081 }
+          periodSeconds: 5
+        volumeMounts:
+        - { name: nvme, mountPath: /data }
+        - { name: app, mountPath: /app }
+        resources:
+          requests: { cpu: "2", memory: "36Gi" }
+          limits:   { cpu: "4", memory: "40Gi" }
+      volumes:
+      - name: nvme
+        persistentVolumeClaim: { claimName: mooncake-nvme }
+      - name: app
+        configMap: { name: mooncake-store-node }

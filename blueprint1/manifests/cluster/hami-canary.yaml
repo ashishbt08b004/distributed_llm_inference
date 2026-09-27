@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hami-canary
+spec:
+  restartPolicy: Never
+  schedulerName: hami-scheduler
+  containers:
+  - name: cuda
+    image: ${CUDA_TEST_IMAGE}
+    command: ["nvidia-smi", "--query-gpu=name,memory.used,memory.total", "--format=csv,noheader,nounits"]
+    resources:
+      limits:
+        nvidia.com/gpu: 1
+        nvidia.com/gpumem: 8192
+        nvidia.com/gpucores: 20

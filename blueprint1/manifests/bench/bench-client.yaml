@@ -1,0 +1,37 @@
+# In-cluster benchmark client: has `vllm bench`, reaches pods by DNS, and writes
+# results to the host (${BENCH_DIR}) so they survive pod restarts. Runs no GPU work.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bench-client
+  namespace: inference
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: bench-client } }
+  template:
+    metadata: { labels: { app: bench-client } }
+    spec:
+      containers:
+      - name: bench
+        image: ${APP_IMAGE}
+        imagePullPolicy: Never
+        command: ["sleep", "infinity"]
+        workingDir: /bench
+        env:
+        - { name: HF_HOME, value: /root/.cache/huggingface }
+        - name: HF_TOKEN
+          valueFrom: { secretKeyRef: { name: hf-token, key: token, optional: true } }
+        volumeMounts:
+        - { name: bench, mountPath: /bench }
+        - { name: scripts, mountPath: /scripts }
+        - { name: hf-cache, mountPath: /root/.cache/huggingface }
+        resources:
+          requests: { cpu: "2", memory: "4Gi" }
+          limits:   { cpu: "6", memory: "16Gi" }
+      volumes:
+      - name: bench
+        hostPath: { path: ${BENCH_DIR}, type: DirectoryOrCreate }
+      - name: scripts
+        configMap: { name: bench-scripts }
+      - name: hf-cache
+        hostPath: { path: ${HF_CACHE_DIR}, type: DirectoryOrCreate }

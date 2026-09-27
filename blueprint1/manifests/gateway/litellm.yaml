@@ -1,0 +1,73 @@
+# LiteLLM gateway: auth (master key), unified OpenAI API, in front of the router.
+# Response caching is OFF on purpose: the blueprint's `cache: true` would answer
+# repeated benchmark prompts from LiteLLM's cache and silently skew every number.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: litellm-master-key
+  namespace: inference
+stringData:
+  key: "${LITELLM_MASTER_KEY}"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: litellm-config
+  namespace: inference
+data:
+  config.yaml: |
+    model_list:
+      - model_name: ${SERVED_MODEL_NAME}
+        litellm_params:
+          model: hosted_vllm/${SERVED_MODEL_NAME}
+          api_base: http://router.inference.svc.cluster.local:8080/v1
+          api_key: dummy
+          timeout: 600
+    litellm_settings:
+      set_verbose: false
+      cache: false
+      request_timeout: 600
+    general_settings:
+      master_key: os.environ/LITELLM_MASTER_KEY
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: litellm
+  namespace: inference
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: litellm } }
+  template:
+    metadata: { labels: { app: litellm } }
+    spec:
+      containers:
+      - name: litellm
+        image: ${LITELLM_IMAGE}
+        args: ["--config=/config/config.yaml", "--port=4000", "--num_workers=2"]
+        env:
+        - name: LITELLM_MASTER_KEY
+          valueFrom: { secretKeyRef: { name: litellm-master-key, key: key } }
+        ports: [{ containerPort: 4000, name: http }]
+        readinessProbe:
+          httpGet: { path: /health/liveliness, port: 4000 }
+          periodSeconds: 5
+          failureThreshold: 30
+        volumeMounts: [{ name: config, mountPath: /config }]
+        resources:
+          requests: { cpu: "500m", memory: "1Gi" }
+          limits:   { cpu: "4",    memory: "4Gi" }
+      volumes:
+      - name: config
+        configMap: { name: litellm-config }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: litellm
+  namespace: inference
+spec:
+  type: NodePort
+  selector: { app: litellm }
+  ports:
+  - { port: 4000, targetPort: 4000, nodePort: 30400 }

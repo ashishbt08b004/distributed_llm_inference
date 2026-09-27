@@ -1,0 +1,98 @@
+[
+  {
+    "id": "q01",
+    "difficulty": "easy",
+    "question": "How many customers are in the West region?",
+    "answer": 103,
+    "type": "number",
+    "tolerance": 0
+  },
+  {
+    "id": "q02",
+    "difficulty": "medium",
+    "question": "What was total net revenue in Q1 2025 (January-March)? Round to 2 decimals.",
+    "answer": 541318.93,
+    "type": "number",
+    "tolerance": 0.01
+  },
+  {
+    "id": "q03",
+    "difficulty": "medium",
+    "question": "Which product category had the highest net revenue in 2024?",
+    "answer": "Electronics",
+    "type": "text",
+    "tolerance": 0.01
+  },
+  {
+    "id": "q04",
+    "difficulty": "medium",
+    "question": "Which region had the highest average order value for completed orders in the first half of 2025?",
+    "answer": "East",
+    "type": "text",
+    "tolerance": 0.01
+  },
+  {
+    "id": "q05",
+    "difficulty": "medium",
+    "question": "What percentage of orders placed through the mobile channel in 2024 were returned? One decimal.",
+    "answer": 12.9,
+    "type": "number",
+    "tolerance": 0.02
+  },
+  {
+    "id": "q06",
+    "difficulty": "hard",
+    "question": "Among products with at least 50 order lines, which product (by name) has the highest return rate, measured as order lines on returned orders divided by all its order lines?",
+    "answer": "BEAU-03",
+    "type": "text",
+    "tolerance": 0.01
+  },
+  {
+    "id": "q07",
+    "difficulty": "hard",
+    "question": "What is the average number of completed orders per enterprise customer, counting enterprise customers with zero completed orders too? Two decimals.",
+    "answer": 15.85,
+    "type": "number",
+    "tolerance": 0.01
+  },
+  {
+    "id": "q08",
+    "difficulty": "hard",
+    "question": "What is the median resolution time, in hours, of resolved billing support tickets? One decimal.",
+    "answer": 9.5,
+    "type": "number",
+    "tolerance": 0.03
+  },
+  {
+    "id": "q09",
+    "difficulty": "hard",
+    "question": "Which region's net revenue grew the most, in percentage terms, from Q4 2024 to Q1 2025?",
+    "answer": "South",
+    "type": "text",
+    "tolerance": 0.01
+  },
+  {
+    "id": "q10",
+    "difficulty": "hard",
+    "question": "What was the gross margin percentage for the Electronics category in 2024? One decimal.",
+    "answer": 54.9,
+    "type": "number",
+    "tolerance": 0.02
+  },
+  {
+    "id": "q11",
+    "difficulty": "hard",
+    "question": "How many customers placed their first completed order within 30 days of signing up?",
+    "answer": 144,
+    "type": "number",
+    "tolerance": 0
+  },
+  {
+    "id": "q12",
+    "difficulty": "hard",
+    "question": "What is the average support satisfaction score of customers who have at least one returned order? Average over their answered tickets, two decimals.",
+    "answer": 2.79,
+    "type": "number",
+    "tolerance": 0.01
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "run_id": "20260926-162752",
+  "started_at": "2026-09-26T16:27:52",
+  "label": "C no-kv-tier, one-call-per-reply",
+  "model": "hosted_vllm/qwen7b",
+  "base_url": "http://localhost:4000/v1",
+  "temperature": 0.3,
+  "top_p": 0.8,
+  "top_k": 20,
+  "repetition_penalty": 1.05,
+  "max_tokens": 1024,
+  "max_iter": 15,
+  "guardrail_retries": 2,
+  "concurrency": 4,
+  "repeat": 1,
+  "qids": [
+    "q01",
+    "q02",
+    "q03",
+    "q04",
+    "q05",
+    "q06",
+    "q07",
+    "q08",
+    "q09",
+    "q10",
+    "q11",
+    "q12"
+  ],
+  "elapsed_s": 132.3,
+  "prometheus": {
+    "router_queue_depth_max": 0.0,
+    "router_rejected": null,
+    "router_queue_wait_avg_s": null,
+    "vllm_prefix_hit_rate": 0.8859,
+    "vllm_ttft_avg_s": 0.0745,
+    "vllm_waiting_max": 0.0,
+    "vllm_preemptions": 0.0
+  }
+}

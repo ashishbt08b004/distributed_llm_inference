@@ -1,0 +1,419 @@
+<svg viewBox="0 0 1400 1080" xmlns="http://www.w3.org/2000/svg" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo2MDI5MmExMC02YTVjLTRjYjYtODIzMy1kMmYzNjM1NzhlZWQAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaCRfOKF1/hoplBlWWwRpwHEAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo4OTJmNWEzMy0xMWQ0LTRkYzktYWVkYi0wZmFjNGZmYzNmZTlscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoAUZD6Po2S/nS4lJX0K+nAgAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggZ2zIufO27QOZlhV4CEryVMVijuM6raL9ysuEkNFnvuekZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaN3PkPVRLVMy8RZDN1BPx3AAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCBQfbuZo6fXyCkFAyNsxWQslMA8U8ZANi56KvuPkwFemmRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBh/Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjYwMjkyYTEwLTZhNWMtNGNiNi04MjMzLWQyZjM2MzU3OGVlZC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjlmYTVkMjk0LWVmYWEtNDk4YS04OWRhLTE2ZmEzYzdhMDYwZXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCBnbMi587btA5mWFXgISvJUxWKO4zqtov3Ky4SQ0We+56JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggzRZ4JydVtdY8HTkEkgCPueAQamxvKgs1tKG68VpTN3GiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggD92LPTJP8iKsK4ZRpFZKci1j4wTUPorKKbRZO4iJyql0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQLI9X2SbUsp2Gz78rCLt9gRq3N/bo/ieoqw4IF7rlsie1vcOZivBFsMWC3mJMzxxwBQ+0l/DqqhyjmaHm0hcoA0=</c2pa:manifest></metadata>
+  <defs>
+    <!-- Excalidraw-style rough filter -->
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.6"/>
+    </filter>
+    <filter id="roughLine" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="3"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.2"/>
+    </filter>
+    <marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 0 L 11 6 L 0 12 Z" fill="#3d3d3d"/>
+    </marker>
+    <marker id="arrKV" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 0 L 11 6 L 0 12 Z" fill="#1e40af"/>
+    </marker>
+    <marker id="arrOrange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 0 L 11 6 L 0 12 Z" fill="#c2410c"/>
+    </marker>
+    <marker id="arrBigOrange" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto">
+      <path d="M 0 0 L 15 8 L 0 16 Z" fill="#c2410c" stroke="#7c2d12" stroke-width="0.5"/>
+    </marker>
+    <marker id="arrScrape" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 9 5 L 0 10 Z" fill="#0369a1"/>
+    </marker>
+    <marker id="arrPush" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 9 5 L 0 10 Z" fill="#9d174d"/>
+    </marker>
+  </defs>
+
+  <!-- Paper background -->
+  <rect width="1400" height="1080" fill="#fdfaf6"/>
+
+  <style>
+    .hw { font-family: 'Kalam', 'Virgil', 'Comic Sans MS', 'Segoe Print', 'Bradley Hand', cursive, sans-serif; }
+    .code { font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace; }
+  </style>
+
+  <!-- ============ TITLE ============ -->
+  <g class="hw" transform="rotate(-0.3, 700, 45)">
+    <text x="700" y="48" text-anchor="middle" font-size="32" font-weight="700" fill="#1e1e1e">
+      Blueprint 1 — Single-node stack on 1× H100
+    </text>
+  </g>
+  <g class="hw" transform="rotate(0.2, 700, 82)">
+    <text x="700" y="82" text-anchor="middle" font-size="16" fill="#57534e" font-style="italic">
+      Qwen2.5-7B · HAMi-sliced GPU · 5 pods sharing 80 GB · full observability
+    </text>
+  </g>
+
+  <!-- ============ USER ============ -->
+  <g transform="translate(80, 130)">
+    <!-- cloud user bubble -->
+    <g filter="url(#rough)">
+      <ellipse cx="70" cy="35" rx="72" ry="34" fill="#fef9c3" stroke="#78350f" stroke-width="2.5"/>
+    </g>
+    <text x="70" y="30" text-anchor="middle" class="hw" font-size="18" font-weight="700" fill="#1e1e1e">👤 User</text>
+    <text x="70" y="50" text-anchor="middle" class="hw" font-size="12" fill="#57534e">HTTP / SSE stream</text>
+  </g>
+
+  <!-- Arrow: user → gateway -->
+  <g filter="url(#roughLine)">
+    <path d="M 155 165 Q 210 165 260 165" stroke="#c2410c" stroke-width="2.5" fill="none" marker-end="url(#arrOrange)"/>
+  </g>
+  <text x="205" y="155" class="hw" font-size="11" fill="#c2410c" font-style="italic">prompts</text>
+
+  <!-- ============ LiteLLM GATEWAY ============ -->
+  <g transform="translate(270, 120)">
+    <g filter="url(#rough)">
+      <rect x="0" y="0" width="230" height="95" rx="12" fill="#ede9fe" stroke="#5b21b6" stroke-width="2.5"/>
+    </g>
+    <text x="115" y="26" text-anchor="middle" class="hw" font-size="18" font-weight="700" fill="#1e1e1e">🚪 API Gateway</text>
+    <text x="115" y="46" text-anchor="middle" class="hw" font-size="14" fill="#5b21b6" font-weight="600">LiteLLM</text>
+    <text x="115" y="65" text-anchor="middle" class="hw" font-size="11" fill="#57534e">auth · quotas</text>
+    <text x="115" y="80" text-anchor="middle" class="hw" font-size="11" fill="#57534e">model routing</text>
+  </g>
+
+  <!-- Arrow: gateway → router Service (auth complete, model resolved) -->
+  <g>
+    <path d="M 500 167 L 585 167" stroke="#c2410c" stroke-width="3" fill="none" marker-end="url(#arrOrange)"/>
+    <text x="542" y="155" text-anchor="middle" class="hw" font-size="11" font-weight="700" fill="#7c2d12">authenticated</text>
+    <text x="542" y="188" text-anchor="middle" class="code" font-size="9" fill="#57534e">model=qwen7b</text>
+  </g>
+
+  <!-- ============ ROUTER TIER: router Service :8080 fronts ONE of two implementations ============ -->
+  <g filter="url(#rough)">
+    <rect x="568" y="100" width="782" height="130" rx="14" fill="none" stroke="#57534e" stroke-width="1.8" stroke-dasharray="7,4"/>
+  </g>
+  <text x="959" y="113" text-anchor="middle" class="hw" font-size="11" fill="#57534e" font-style="italic">router Service :8080 — exactly one implementation is active (06_deploy_router.sh / set_config.sh)</text>
+
+  <!-- kv_router backdrop: queue + router are one process -->
+  <g filter="url(#rough)">
+    <rect x="580" y="118" width="478" height="104" rx="12" fill="#ecfeff" stroke="#0e7490" stroke-width="1.5" stroke-dasharray="5,3"/>
+  </g>
+
+  <!-- ============ ADMISSION QUEUE (inside kv_router) ============ -->
+  <g transform="translate(590, 124)">
+    <g filter="url(#rough)">
+      <rect x="0" y="0" width="200" height="92" rx="12" fill="#fce7f3" stroke="#9d174d" stroke-width="2.5"/>
+    </g>
+    <text x="100" y="23" text-anchor="middle" class="hw" font-size="16" font-weight="700" fill="#1e1e1e">⏳ Admission Queue</text>
+    <!-- waiting requests: a bounded FIFO lane -->
+    <g filter="url(#rough)">
+      <rect x="30" y="31" width="130" height="18" rx="4" fill="#fdf2f8" stroke="#9d174d" stroke-width="1.5"/>
+    </g>
+    <rect x="36" y="35" width="14" height="10" rx="2" fill="#f9a8d4"/>
+    <rect x="54" y="35" width="14" height="10" rx="2" fill="#f9a8d4"/>
+    <rect x="72" y="35" width="14" height="10" rx="2" fill="#f472b6"/>
+    <rect x="90" y="35" width="14" height="10" rx="2" fill="#ec4899"/>
+    <rect x="108" y="35" width="14" height="10" rx="2" fill="#db2777"/>
+    <path d="M 162 40 L 176 40" stroke="#9d174d" stroke-width="2" fill="none" marker-end="url(#arrPush)"/>
+    <text x="100" y="65" text-anchor="middle" class="hw" font-size="11" fill="#57534e">bounded FIFO · slot cap per pod</text>
+    <text x="100" y="80" text-anchor="middle" class="code" font-size="9" fill="#9d174d">full → 429 · wait &gt; 120 s → 503</text>
+  </g>
+
+  <!-- Arrow: queue → kv_router (a request leaves the queue when a decode pod has a free slot) -->
+  <g>
+    <path d="M 790 170 L 832 170" stroke="#c2410c" stroke-width="2.5" fill="none" marker-end="url(#arrOrange)"/>
+    <text x="811" y="160" text-anchor="middle" class="hw" font-size="10" font-weight="700" fill="#7c2d12">slot free</text>
+  </g>
+
+  <!-- ============ kv_router (config C) ============ -->
+  <g transform="translate(838, 124)">
+    <g filter="url(#rough)">
+      <rect x="0" y="0" width="210" height="92" rx="12" fill="#cffafe" stroke="#0e7490" stroke-width="2.5"/>
+    </g>
+    <text x="105" y="24" text-anchor="middle" class="hw" font-size="17" font-weight="700" fill="#1e1e1e">🧠 kv_router</text>
+    <text x="105" y="43" text-anchor="middle" class="hw" font-size="13" fill="#0e7490" font-weight="600">config C</text>
+    <text x="105" y="61" text-anchor="middle" class="hw" font-size="11" fill="#57534e">prefix-hash + P/D hop</text>
+    <text x="105" y="77" text-anchor="middle" class="hw" font-size="11" fill="#57534e">picks pod at dequeue time</text>
+  </g>
+
+  <!-- "or" between the two implementations -->
+  <text x="1080" y="175" text-anchor="middle" class="hw" font-size="16" font-weight="700" fill="#57534e">or</text>
+
+  <!-- ============ sglang_router (config B) ============ -->
+  <g transform="translate(1104, 124)">
+    <g filter="url(#rough)">
+      <rect x="0" y="0" width="234" height="92" rx="12" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+    </g>
+    <text x="117" y="24" text-anchor="middle" class="hw" font-size="17" font-weight="700" fill="#1e1e1e">🧠 sglang_router</text>
+    <text x="117" y="43" text-anchor="middle" class="hw" font-size="13" fill="#0369a1" font-weight="600">config B</text>
+    <text x="117" y="61" text-anchor="middle" class="hw" font-size="11" fill="#57534e">cache_aware · decode pods only</text>
+    <text x="117" y="77" text-anchor="middle" class="hw" font-size="11" fill="#57534e">no admission queue</text>
+  </g>
+  <text x="1221" y="244" text-anchor="middle" class="code" font-size="9" fill="#0369a1">ROUTER_IMPL_B=kv → kv_router</text>
+
+  <!-- Back-pressure: queue full / wait timeout → 429 / 503 to the gateway -->
+  <g filter="url(#roughLine)">
+    <path d="M 588 207 Q 545 215 505 207" stroke="#9d174d" stroke-width="1.8" fill="none" stroke-dasharray="5,3" marker-end="url(#arrPush)"/>
+  </g>
+  <text x="546" y="226" text-anchor="middle" class="code" font-size="9" fill="#9d174d">429 · Retry-After</text>
+
+  <!-- kv_router → prefill pool (config C only) and → decode pool -->
+  <g filter="url(#roughLine)">
+    <path d="M 943 222 Q 943 252 700 252 Q 250 252 250 300" stroke="#c2410c" stroke-width="2.5" fill="none" marker-end="url(#arrOrange)"/>
+    <path d="M 943 222 Q 943 252 1060 252 Q 1120 252 1120 300" stroke="#c2410c" stroke-width="2.5" fill="none" marker-end="url(#arrOrange)"/>
+  </g>
+  <!-- sglang_router → decode pool (config B) -->
+  <g>
+    <path d="M 1221 252 L 1221 300" stroke="#0369a1" stroke-width="2.5" fill="none" stroke-dasharray="7,4" marker-end="url(#arrScrape)"/>
+  </g>
+  <text x="370" y="246" class="hw" font-size="11" fill="#c2410c" font-style="italic">1: prefill req (max_tokens=1)</text>
+  <text x="1000" y="274" class="hw" font-size="11" fill="#c2410c" font-style="italic">2: decode req</text>
+  <text x="1234" y="272" class="hw" font-size="10" fill="#0369a1" font-style="italic">config B</text>
+
+  <!-- ============ PREFILL POOL ============ -->
+  <g transform="translate(70, 310)">
+    <!-- pool container -->
+    <g filter="url(#rough)">
+      <rect x="0" y="0" width="420" height="240" rx="14" fill="#fef3c7" stroke="#b45309" stroke-width="2.5" stroke-dasharray="10,4"/>
+    </g>
+    <text x="210" y="30" text-anchor="middle" class="hw" font-size="20" font-weight="700" fill="#78350f">🔥 Prefill Pool</text>
+    <text x="210" y="50" text-anchor="middle" class="hw" font-size="12" fill="#92400e" font-style="italic">compute-bound · long prompts</text>
+
+    <!-- Prefill Pod 1 -->
+    <g transform="translate(30, 75)">
+      <g filter="url(#rough)">
+        <rect x="0" y="0" width="170" height="145" rx="10" fill="#fed7aa" stroke="#9a3412" stroke-width="2.5"/>
+      </g>
+      <text x="85" y="24" text-anchor="middle" class="hw" font-size="15" font-weight="700" fill="#1e1e1e">Prefill Pod 1</text>
+      <text x="85" y="44" text-anchor="middle" class="hw" font-size="12" fill="#9a3412">vLLM 0.9</text>
+      <text x="85" y="65" text-anchor="middle" class="code" font-size="10" fill="#57534e">15 GB HBM</text>
+      <text x="85" y="80" text-anchor="middle" class="code" font-size="10" fill="#57534e">25% SMs</text>
+      <text x="85" y="100" text-anchor="middle" class="hw" font-size="11" fill="#78350f" font-style="italic">produces</text>
+      <text x="85" y="115" text-anchor="middle" class="hw" font-size="11" fill="#78350f" font-style="italic">KV blocks</text>
+      <text x="85" y="135" text-anchor="middle" class="hw" font-size="12" fill="#1e1e1e">→ Mooncake</text>
+    </g>
+
+    <!-- Prefill Pod 2 -->
+    <g transform="translate(220, 75)">
+      <g filter="url(#rough)">
+        <rect x="0" y="0" width="170" height="145" rx="10" fill="#fed7aa" stroke="#9a3412" stroke-width="2.5"/>
+      </g>
+      <text x="85" y="24" text-anchor="middle" class="hw" font-size="15" font-weight="700" fill="#1e1e1e">Prefill Pod 2</text>
+      <text x="85" y="44" text-anchor="middle" class="hw" font-size="12" fill="#9a3412">vLLM 0.9</text>
+      <text x="85" y="65" text-anchor="middle" class="code" font-size="10" fill="#57534e">15 GB HBM</text>
+      <text x="85" y="80" text-anchor="middle" class="code" font-size="10" fill="#57534e">25% SMs</text>
+      <text x="85" y="100" text-anchor="middle" class="hw" font-size="11" fill="#78350f" font-style="italic">produces</text>
+      <text x="85" y="115" text-anchor="middle" class="hw" font-size="11" fill="#78350f" font-style="italic">KV blocks</text>
+      <text x="85" y="135" text-anchor="middle" class="hw" font-size="12" fill="#1e1e1e">→ Mooncake</text>
+    </g>
+  </g>
+
+  <!-- ============ DECODE POOL ============ -->
+  <g transform="translate(910, 310)">
+    <g filter="url(#rough)">
+      <rect x="0" y="0" width="420" height="240" rx="14" fill="#fee2e2" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="10,4"/>
+    </g>
+    <text x="210" y="30" text-anchor="middle" class="hw" font-size="20" font-weight="700" fill="#7f1d1d">💧 Decode Pool</text>
+    <text x="210" y="50" text-anchor="middle" class="hw" font-size="12" fill="#991b1b" font-style="italic">memory-bound · streaming tokens</text>
+
+    <!-- Decode Pod 1 -->
+    <g transform="translate(15, 75)">
+      <g filter="url(#rough)">
+        <rect x="0" y="0" width="120" height="145" rx="10" fill="#fecaca" stroke="#7f1d1d" stroke-width="2.5"/>
+      </g>
+      <text x="60" y="24" text-anchor="middle" class="hw" font-size="14" font-weight="700" fill="#1e1e1e">Decode 1</text>
+      <text x="60" y="43" text-anchor="middle" class="hw" font-size="11" fill="#7f1d1d">vLLM 0.9</text>
+      <text x="60" y="62" text-anchor="middle" class="code" font-size="9" fill="#57534e">12 GB HBM</text>
+      <text x="60" y="76" text-anchor="middle" class="code" font-size="9" fill="#57534e">15% SMs</text>
+      <text x="60" y="96" text-anchor="middle" class="hw" font-size="10" fill="#991b1b" font-style="italic">many</text>
+      <text x="60" y="111" text-anchor="middle" class="hw" font-size="10" fill="#991b1b" font-style="italic">streams</text>
+      <text x="60" y="132" text-anchor="middle" class="hw" font-size="11" fill="#1e1e1e">← KV</text>
+    </g>
+
+    <!-- Decode Pod 2 -->
+    <g transform="translate(150, 75)">
+      <g filter="url(#rough)">
+        <rect x="0" y="0" width="120" height="145" rx="10" fill="#fecaca" stroke="#7f1d1d" stroke-width="2.5"/>
+      </g>
+      <text x="60" y="24" text-anchor="middle" class="hw" font-size="14" font-weight="700" fill="#1e1e1e">Decode 2</text>
+      <text x="60" y="43" text-anchor="middle" class="hw" font-size="11" fill="#7f1d1d">vLLM 0.9</text>
+      <text x="60" y="62" text-anchor="middle" class="code" font-size="9" fill="#57534e">12 GB HBM</text>
+      <text x="60" y="76" text-anchor="middle" class="code" font-size="9" fill="#57534e">15% SMs</text>
+      <text x="60" y="96" text-anchor="middle" class="hw" font-size="10" fill="#991b1b" font-style="italic">many</text>
+      <text x="60" y="111" text-anchor="middle" class="hw" font-size="10" fill="#991b1b" font-style="italic">streams</text>
+      <text x="60" y="132" text-anchor="middle" class="hw" font-size="11" fill="#1e1e1e">← KV</text>
+    </g>
+
+    <!-- Decode Pod 3 -->
+    <g transform="translate(285, 75)">
+      <g filter="url(#rough)">
+        <rect x="0" y="0" width="120" height="145" rx="10" fill="#fecaca" stroke="#7f1d1d" stroke-width="2.5"/>
+      </g>
+      <text x="60" y="24" text-anchor="middle" class="hw" font-size="14" font-weight="700" fill="#1e1e1e">Decode 3</text>
+      <text x="60" y="43" text-anchor="middle" class="hw" font-size="11" fill="#7f1d1d">vLLM 0.9</text>
+      <text x="60" y="62" text-anchor="middle" class="code" font-size="9" fill="#57534e">12 GB HBM</text>
+      <text x="60" y="76" text-anchor="middle" class="code" font-size="9" fill="#57534e">15% SMs</text>
+      <text x="60" y="96" text-anchor="middle" class="hw" font-size="10" fill="#991b1b" font-style="italic">many</text>
+      <text x="60" y="111" text-anchor="middle" class="hw" font-size="10" fill="#991b1b" font-style="italic">streams</text>
+      <text x="60" y="132" text-anchor="middle" class="hw" font-size="11" fill="#1e1e1e">← KV</text>
+    </g>
+  </g>
+
+  <!-- Token stream back to user (curved dashed line) -->
+  <g filter="url(#roughLine)">
+    <path d="M 1330 385 Q 1375 385 1375 330 L 1375 130 Q 1375 93 1330 93 L 200 93 Q 155 93 155 130" stroke="#c2410c" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arrOrange)"/>
+  </g>
+  <text x="1393" y="330" class="hw" font-size="11" fill="#c2410c" font-style="italic" transform="rotate(-90 1393 330)">← tokens streaming</text>
+
+  <!-- KV transfer arrows: prefill → mooncake, mooncake → decode -->
+  <g filter="url(#roughLine)">
+    <path d="M 240 555 Q 240 615 480 640" stroke="#1e40af" stroke-width="3" fill="none" stroke-dasharray="8,4" marker-end="url(#arrKV)"/>
+    <path d="M 400 555 Q 400 610 570 640" stroke="#1e40af" stroke-width="3" fill="none" stroke-dasharray="8,4" marker-end="url(#arrKV)"/>
+    <path d="M 830 640 Q 950 610 970 555" stroke="#1e40af" stroke-width="3" fill="none" stroke-dasharray="8,4" marker-end="url(#arrKV)"/>
+    <path d="M 830 660 Q 1050 620 1105 555" stroke="#1e40af" stroke-width="3" fill="none" stroke-dasharray="8,4" marker-end="url(#arrKV)"/>
+    <path d="M 830 680 Q 1160 640 1240 555" stroke="#1e40af" stroke-width="3" fill="none" stroke-dasharray="8,4" marker-end="url(#arrKV)"/>
+  </g>
+
+  <!-- ============ MOONCAKE KV TIER ============ -->
+  <g transform="translate(480, 620)">
+    <g filter="url(#rough)">
+      <rect x="0" y="0" width="360" height="130" rx="14" fill="#d1fae5" stroke="#065f46" stroke-width="2.5"/>
+    </g>
+    <text x="180" y="28" text-anchor="middle" class="hw" font-size="18" font-weight="700" fill="#064e3b">🌙 Mooncake KV Tier</text>
+    <text x="180" y="47" text-anchor="middle" class="hw" font-size="11" fill="#065f46" font-style="italic">cluster-wide KV cache · cross-pod prefix reuse</text>
+
+    <!-- Master node icon -->
+    <g transform="translate(20, 62)">
+      <g filter="url(#rough)">
+        <rect x="0" y="0" width="100" height="55" rx="8" fill="#a7f3d0" stroke="#065f46" stroke-width="2"/>
+      </g>
+      <text x="50" y="20" text-anchor="middle" class="hw" font-size="12" font-weight="700" fill="#1e1e1e">Master</text>
+      <text x="50" y="38" text-anchor="middle" class="hw" font-size="10" fill="#065f46">metadata svc</text>
+    </g>
+
+    <!-- Storage node -->
+    <g transform="translate(140, 62)">
+      <g filter="url(#rough)">
+        <rect x="0" y="0" width="200" height="55" rx="8" fill="#a7f3d0" stroke="#065f46" stroke-width="2"/>
+      </g>
+      <text x="100" y="20" text-anchor="middle" class="hw" font-size="12" font-weight="700" fill="#1e1e1e">Storage Pod</text>
+      <text x="100" y="38" text-anchor="middle" class="hw" font-size="10" fill="#065f46">32 GB RAM + 200 GB NVMe (hostPath)</text>
+    </g>
+  </g>
+
+  <!-- KV label -->
+  <text x="380" y="600" class="hw" font-size="12" fill="#1e40af" font-weight="700" font-style="italic">KV blocks →</text>
+  <text x="900" y="600" class="hw" font-size="12" fill="#1e40af" font-weight="700" font-style="italic">← KV lookup</text>
+
+  <!-- Arrow: mooncake → physical GPU (below) -->
+  <g filter="url(#roughLine)">
+    <path d="M 660 755 Q 660 790 660 810" stroke="#065f46" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
+  </g>
+
+  <!-- ============ PHYSICAL H100 GPU (bottom, showing HAMi slices) ============ -->
+  <g transform="translate(120, 810)">
+    <!-- Big GPU rectangle -->
+    <g filter="url(#rough)">
+      <rect x="0" y="0" width="1080" height="160" rx="16" fill="#f5f5f4" stroke="#1c1917" stroke-width="3"/>
+    </g>
+
+    <!-- Label -->
+    <text x="540" y="30" text-anchor="middle" class="hw" font-size="18" font-weight="700" fill="#1e1e1e">
+      ⚡ 1× NVIDIA H100 PCIe · 80 GB HBM · sliced by HAMi
+    </text>
+
+    <!-- 5 slices representing the 5 pods on this GPU -->
+    <!-- Prefill slice 1 -->
+    <g transform="translate(40, 55)">
+      <g filter="url(#rough)">
+        <rect x="0" y="0" width="200" height="90" rx="8" fill="#fed7aa" stroke="#9a3412" stroke-width="2"/>
+      </g>
+      <text x="100" y="28" text-anchor="middle" class="hw" font-size="13" font-weight="700" fill="#78350f">Prefill 1 slice</text>
+      <text x="100" y="52" text-anchor="middle" class="code" font-size="11" fill="#1e1e1e">15 GB · 25% SM</text>
+      <text x="100" y="75" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">HAMi partition</text>
+    </g>
+
+    <!-- Prefill slice 2 -->
+    <g transform="translate(250, 55)">
+      <g filter="url(#rough)">
+        <rect x="0" y="0" width="200" height="90" rx="8" fill="#fed7aa" stroke="#9a3412" stroke-width="2"/>
+      </g>
+      <text x="100" y="28" text-anchor="middle" class="hw" font-size="13" font-weight="700" fill="#78350f">Prefill 2 slice</text>
+      <text x="100" y="52" text-anchor="middle" class="code" font-size="11" fill="#1e1e1e">15 GB · 25% SM</text>
+      <text x="100" y="75" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">HAMi partition</text>
+    </g>
+
+    <!-- Decode slice 1 -->
+    <g transform="translate(460, 55)">
+      <g filter="url(#rough)">
+        <rect x="0" y="0" width="180" height="90" rx="8" fill="#fecaca" stroke="#7f1d1d" stroke-width="2"/>
+      </g>
+      <text x="90" y="28" text-anchor="middle" class="hw" font-size="13" font-weight="700" fill="#7f1d1d">Decode 1</text>
+      <text x="90" y="52" text-anchor="middle" class="code" font-size="10" fill="#1e1e1e">12 GB · 15% SM</text>
+      <text x="90" y="75" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">HAMi partition</text>
+    </g>
+
+    <!-- Decode slice 2 -->
+    <g transform="translate(650, 55)">
+      <g filter="url(#rough)">
+        <rect x="0" y="0" width="180" height="90" rx="8" fill="#fecaca" stroke="#7f1d1d" stroke-width="2"/>
+      </g>
+      <text x="90" y="28" text-anchor="middle" class="hw" font-size="13" font-weight="700" fill="#7f1d1d">Decode 2</text>
+      <text x="90" y="52" text-anchor="middle" class="code" font-size="10" fill="#1e1e1e">12 GB · 15% SM</text>
+      <text x="90" y="75" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">HAMi partition</text>
+    </g>
+
+    <!-- Decode slice 3 -->
+    <g transform="translate(840, 55)">
+      <g filter="url(#rough)">
+        <rect x="0" y="0" width="180" height="90" rx="8" fill="#fecaca" stroke="#7f1d1d" stroke-width="2"/>
+      </g>
+      <text x="90" y="28" text-anchor="middle" class="hw" font-size="13" font-weight="700" fill="#7f1d1d">Decode 3</text>
+      <text x="90" y="52" text-anchor="middle" class="code" font-size="10" fill="#1e1e1e">12 GB · 15% SM</text>
+      <text x="90" y="75" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">HAMi partition</text>
+    </g>
+  </g>
+
+  <!-- ============ OBSERVABILITY (side column) ============ -->
+  <g transform="translate(1215, 620)">
+    <g filter="url(#rough)">
+      <rect x="0" y="0" width="160" height="150" rx="12" fill="#dbeafe" stroke="#1e40af" stroke-width="2.5"/>
+    </g>
+    <text x="80" y="28" text-anchor="middle" class="hw" font-size="15" font-weight="700" fill="#1e3a8a">📊 Observability</text>
+    <text x="80" y="55" text-anchor="middle" class="hw" font-size="12" fill="#1e40af">Prometheus</text>
+    <text x="80" y="76" text-anchor="middle" class="hw" font-size="12" fill="#1e40af">+ Grafana</text>
+    <text x="80" y="100" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">TTFT p95 · ITL p95</text>
+    <text x="80" y="115" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">KV cache %</text>
+    <text x="80" y="130" text-anchor="middle" class="hw" font-size="10" fill="#57534e" font-style="italic">preemptions · queue depth</text>
+  </g>
+
+  <!-- Dashed scrape lines from observability to everything -->
+  <g filter="url(#roughLine)">
+    <path d="M 1215 660 Q 1080 660 1050 440" stroke="#0369a1" stroke-width="1.5" fill="none" stroke-dasharray="3,3" marker-end="url(#arrScrape)"/>
+    <path d="M 1215 700 Q 900 700 320 440" stroke="#0369a1" stroke-width="1.5" fill="none" stroke-dasharray="3,3" marker-end="url(#arrScrape)"/>
+    <path d="M 1215 740 Q 900 740 880 750" stroke="#0369a1" stroke-width="1.5" fill="none" stroke-dasharray="3,3" marker-end="url(#arrScrape)"/>
+  </g>
+  <text x="1180" y="710" text-anchor="end" class="hw" font-size="10" fill="#0369a1" font-style="italic">/metrics scrape</text>
+
+  <!-- ============ FOUNDATION LABEL (k3s cluster wrapper) ============ -->
+  <g transform="translate(60, 993)">
+    <g filter="url(#rough)">
+      <rect x="0" y="0" width="1280" height="40" rx="10" fill="#f5f5f4" stroke="#57534e" stroke-width="2" stroke-dasharray="8,4"/>
+    </g>
+    <text x="640" y="26" text-anchor="middle" class="hw" font-size="15" font-weight="700" fill="#1c1917">
+      🐳 k3s cluster (single Lambda node) · NVIDIA GPU Operator · HAMi scheduler · Helm-managed
+    </text>
+  </g>
+
+  <!-- Legend (bottom-left) -->
+  <g transform="translate(60, 720)">
+    <text x="0" y="0" class="hw" font-size="12" font-weight="700" fill="#1c1917">Legend</text>
+    <g transform="translate(0, 12)">
+      <line x1="0" y1="8" x2="30" y2="8" stroke="#c2410c" stroke-width="2.5" marker-end="url(#arrOrange)"/>
+      <text x="38" y="12" class="hw" font-size="11" fill="#1e1e1e">request / tokens</text>
+    </g>
+    <g transform="translate(0, 30)">
+      <line x1="0" y1="8" x2="30" y2="8" stroke="#1e40af" stroke-width="3" stroke-dasharray="6,3" marker-end="url(#arrKV)"/>
+      <text x="38" y="12" class="hw" font-size="11" fill="#1e1e1e">KV cache transfer</text>
+    </g>
+    <g transform="translate(0, 48)">
+      <line x1="0" y1="8" x2="30" y2="8" stroke="#0369a1" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrScrape)"/>
+      <text x="38" y="12" class="hw" font-size="11" fill="#1e1e1e">metrics scrape</text>
+    </g>
+  </g>
+</svg>

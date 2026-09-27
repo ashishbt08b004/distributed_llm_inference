@@ -1,0 +1,5 @@
+.venv/
+.env
+data/shop.db
+runs/
+__pycache__/

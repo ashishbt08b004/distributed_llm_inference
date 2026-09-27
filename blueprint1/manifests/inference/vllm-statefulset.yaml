@@ -1,0 +1,94 @@
+# Template for one vLLM pool. Rendered once per role:
+#   vllm-prefill (config C), vllm-decode (configs B/C), vllm-single (config A).
+# StatefulSet + headless Service give every replica a stable DNS name
+# (vllm-decode-0.vllm-decode.inference.svc...) so routers can address pods
+# individually — a normal ClusterIP Service would load-balance underneath the
+# cache-aware router and destroy prefix locality.
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${POOL}
+  namespace: inference
+  labels: { app: vllm, role: ${ROLE} }
+spec:
+  clusterIP: None
+  publishNotReadyAddresses: true
+  selector: { app: vllm, pool: ${POOL} }
+  ports:
+  - { name: http, port: 8000, targetPort: 8000 }
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ${POOL}
+  namespace: inference
+spec:
+  serviceName: ${POOL}
+  replicas: ${REPLICAS}
+  podManagementPolicy: Parallel
+  selector: { matchLabels: { app: vllm, pool: ${POOL} } }
+  template:
+    metadata:
+      labels: { app: vllm, pool: ${POOL}, role: ${ROLE}, bp1-config: "${BP1_CONFIG}" }
+    spec:
+      schedulerName: hami-scheduler
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: vllm
+        image: ${APP_IMAGE}
+        imagePullPolicy: Never
+        command: ["/bin/bash", "/entrypoint/vllm-entrypoint.sh"]
+        env:
+        - { name: ROLE, value: "${ROLE}" }
+        - { name: MODEL_ID, value: "${MODEL_ID}" }
+        - { name: SERVED_MODEL_NAME, value: "${SERVED_MODEL_NAME}" }
+        - { name: MAX_MODEL_LEN, value: "${MAX_MODEL_LEN}" }
+        - { name: GPU_MEM_UTIL, value: "${GPU_MEM_UTIL}" }
+        - { name: MAX_NUM_SEQS, value: "${MAX_NUM_SEQS}" }
+        - { name: QUANTIZATION, value: "${QUANTIZATION}" }
+        - { name: VLLM_EXTRA_ARGS, value: "${VLLM_EXTRA_ARGS}" }
+        - { name: ENABLE_PREFIX_CACHING, value: "${ENABLE_PREFIX_CACHING}" }
+        - { name: KV_TRANSFER_CONFIG, value: '${KV_TRANSFER_CONFIG}' }
+        - { name: MOONCAKE_MASTER_HOST, value: "${MOONCAKE_MASTER_HOST}" }
+        - { name: MOONCAKE_CLIENT_SEGMENT_GB, value: "${MOONCAKE_CLIENT_SEGMENT_GB}" }
+        - { name: LMCACHE_CHUNK_SIZE, value: "${LMCACHE_CHUNK_SIZE}" }
+        - { name: LMCACHE_LOCAL_CPU_GB, value: "${LMCACHE_LOCAL_CPU_GB}" }
+        - { name: HF_HUB_OFFLINE, value: "1" }     # weights are pre-downloaded by the model-download Job
+        - name: HF_TOKEN
+          valueFrom: { secretKeyRef: { name: hf-token, key: token, optional: true } }
+        - name: POD_IP
+          valueFrom: { fieldRef: { fieldPath: status.podIP } }
+        ports:
+        - { containerPort: 8000, name: http }
+        startupProbe:              # model load + torch.compile + CUDA graphs
+          httpGet: { path: /health, port: 8000 }
+          periodSeconds: 10
+          failureThreshold: 90     # 15 min
+        readinessProbe:
+          httpGet: { path: /health, port: 8000 }
+          periodSeconds: 5
+        livenessProbe:
+          httpGet: { path: /health, port: 8000 }
+          periodSeconds: 20
+          failureThreshold: 6
+        volumeMounts:
+        - { name: entrypoint, mountPath: /entrypoint }
+        - { name: hf-cache, mountPath: /root/.cache/huggingface }
+        - { name: vllm-cache, mountPath: /root/.cache/vllm }
+        - { name: shm, mountPath: /dev/shm }
+        resources:
+          requests: { cpu: "1", memory: "8Gi" }
+          limits:
+            memory: "24Gi"
+            nvidia.com/gpu: 1
+            nvidia.com/gpumem: ${GPUMEM}
+            nvidia.com/gpucores: ${GPUCORES}
+      volumes:
+      - name: entrypoint
+        configMap: { name: vllm-entrypoint }
+      - name: hf-cache
+        hostPath: { path: ${HF_CACHE_DIR}, type: DirectoryOrCreate }
+      - name: vllm-cache
+        hostPath: { path: ${VLLM_CACHE_DIR}, type: DirectoryOrCreate }
+      - name: shm
+        emptyDir: { medium: Memory, sizeLimit: 4Gi }

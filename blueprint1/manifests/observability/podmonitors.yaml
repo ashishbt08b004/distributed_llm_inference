@@ -1,0 +1,40 @@
+# Prometheus scrapes every vLLM pod, the routers and the Mooncake master directly
+# (pod-level, so per-replica metrics are kept apart).
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: vllm
+  namespace: inference
+spec:
+  selector:
+    matchLabels: { app: vllm }
+  podMetricsEndpoints:
+  - port: http
+    path: /metrics
+    interval: 15s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: routers
+  namespace: inference
+spec:
+  selector:
+    matchLabels: { tier: router }
+  podMetricsEndpoints:
+  - port: metrics
+    path: /metrics
+    interval: 15s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: mooncake-master
+  namespace: kv-tier
+spec:
+  selector:
+    matchLabels: { app: mooncake, role: master }
+  podMetricsEndpoints:
+  - port: metrics
+    path: /metrics
+    interval: 15s

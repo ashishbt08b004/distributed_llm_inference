@@ -1,0 +1,11 @@
+# Stable entrypoint for whichever router implementation is active
+# (sgl-router for config B, kv-router for config C). LiteLLM targets this.
+apiVersion: v1
+kind: Service
+metadata:
+  name: router
+  namespace: inference
+spec:
+  selector: { tier: router }
+  ports:
+  - { name: http, port: 8080, targetPort: 8080 }

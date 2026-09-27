@@ -1,0 +1,43 @@
+# kv_router: cache-aware routing + prefill/decode orchestration (config C),
+# or plain cache-aware routing when PREFILL_URLS is empty.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kv-router
+  namespace: inference
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: kv-router } }
+  template:
+    metadata:
+      labels: { app: kv-router, tier: router }
+    spec:
+      containers:
+      - name: router
+        image: ${APP_IMAGE}
+        imagePullPolicy: Never
+        command: ["python3", "/app/kv_router.py"]
+        env:
+        - { name: NVIDIA_VISIBLE_DEVICES, value: void }
+        - { name: DECODE_URLS, value: "${ROUTER_DECODE_URLS}" }
+        - { name: PREFILL_URLS, value: "${ROUTER_PREFILL_URLS}" }
+        - { name: POLICY, value: cache_aware }
+        - { name: PORT, value: "8080" }
+        - { name: METRICS_PORT, value: "9100" }
+        - { name: MAX_INFLIGHT_PER_WORKER, value: "${ROUTER_MAX_INFLIGHT_PER_WORKER}" }
+        - { name: QUEUE_MAX, value: "${ROUTER_QUEUE_MAX}" }
+        - { name: QUEUE_TIMEOUT, value: "${ROUTER_QUEUE_TIMEOUT}" }
+        ports:
+        - { containerPort: 8080, name: http }
+        - { containerPort: 9100, name: metrics }
+        readinessProbe:
+          httpGet: { path: /health, port: 8080 }
+          periodSeconds: 5
+        volumeMounts:
+        - { name: app, mountPath: /app }
+        resources:
+          requests: { cpu: "500m", memory: "512Mi" }
+          limits:   { cpu: "2",    memory: "2Gi" }
+      volumes:
+      - name: app
+        configMap: { name: kv-router-code }
