@@ -20,7 +20,7 @@ flowchart LR
 
 The full hand-drawn schematic, in the same style as the blueprint diagrams:
 
-![Analyst crew architecture](../artifacts/diagrams/analyst-crew-architecture.svg)
+![Analyst crew architecture](../artifacts/diagrams/analyst-crew-architecture.png)
 
 ## The crew
 

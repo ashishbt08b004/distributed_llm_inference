@@ -27,7 +27,7 @@ flowchart LR
 
 The same picture, drawn in full:
 
-![Blueprint 1 architecture](../artifacts/diagrams/blueprint1-architecture.svg)
+![Blueprint 1 architecture](../artifacts/diagrams/blueprint1-architecture.png)
 
 **The two routers are alternatives.** The `router` Service always points at exactly one of them. `set_config.sh` / `06_deploy_router.sh` pick which one:
 

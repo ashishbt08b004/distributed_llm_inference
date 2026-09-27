@@ -2,7 +2,7 @@
 
 A complete LLM inference stack on one HAMi-sliced NVIDIA H100: LiteLLM gateway, a cache-aware router with an admission queue, disaggregated prefill/decode vLLM pods, an LMCache/Mooncake KV tier, and Prometheus/Grafana. It includes benchmarks and a tool-calling agent workload that exercise the stack.
 
-![Blueprint 1 architecture](artifacts/diagrams/blueprint1-architecture.svg)
+![Blueprint 1 architecture](artifacts/diagrams/blueprint1-architecture.png)
 
 ## What's here
 

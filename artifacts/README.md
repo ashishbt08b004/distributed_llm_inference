@@ -1,16 +1,18 @@
 # Artifacts
 
-Diagrams, screenshots, charts and documents for the project, all in formats GitHub renders in the browser. Everything below displays inline; click any image for full size.
+Diagrams, screenshots, charts and documents for the project, in formats GitHub displays in the browser. Everything below renders inline; click any image for full size.
 
 ## Conventions (for new artifacts)
 
 | Kind | Folder | Format | Naming |
 |---|---|---|---|
-| Architecture / flow diagrams | `diagrams/` | SVG (or PNG) | `<subject>-architecture.svg` |
+| Architecture / flow diagrams | `diagrams/` | PNG to display, plus the SVG as the editable source | `<subject>-architecture.png` / `.svg` |
 | Screenshots (Grafana, terminals, UIs) | `screenshots/<source>/` | PNG | `YYYY-MM-DD_<what-it-shows>.png` |
-| Charts made from results | `charts/` | PNG (or SVG) | `<metric>-<breakdown>.png` |
-| Documents and write-ups | `docs/` | PDF | `<topic>.pdf` |
+| Charts made from results | `charts/` | PNG | `<metric>-<breakdown>.png` |
+| Documents and write-ups | `docs/` | PDF, plus page images in `docs/<topic>/` with a README for inline reading | `<topic>.pdf` |
 
+- **Embed PNGs, not SVGs.** These hand-drawn SVGs don't display on GitHub, so each diagram has a PNG export. Render one with headless Chrome: `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --force-device-scale-factor=2 --window-size=1400,1080 --screenshot="$PWD/x.png" "file://$PWD/x.svg"`.
+- **PDF pages:** `pdftoppm -png -r 110 doc.pdf doc/page`, then list the pages in `doc/README.md`. HTML is not an option: GitHub shows HTML files as source code.
 - **No Office files.** `.docx`, `.pptx` and `.xlsx` don't render on GitHub and are git-ignored. Export documents to PDF and screenshots to PNG. The original can stay on disk next to the export; git ignores it.
 - **Use lowercase kebab-case names** without spaces, so links and URLs stay clean.
 - **Add every new artifact to the gallery below**, with a one-line caption saying what it shows and which run it's from.
@@ -20,15 +22,17 @@ Diagrams, screenshots, charts and documents for the project, all in formats GitH
 
 **Blueprint 1: single-node stack on 1× H100.** The router Service fronts `kv_router` (admission queue, prefix routing, prefill→decode hop; configuration C) or `sglang_router` (configuration B). The pod boxes show the original plan's slice sizes; as deployed, prefill slices are 16 GB and decode slices 14 GB.
 
-![Blueprint 1 architecture](diagrams/blueprint1-architecture.svg)
+![Blueprint 1 architecture](diagrams/blueprint1-architecture.png)
 
 **Agent system: the analyst crew.** The laptop-side CrewAI crew, its 9 local tools, the grader and the report, connected through the SSH tunnel to the gateway, router and vLLM pods.
 
-![Analyst crew architecture](diagrams/analyst-crew-architecture.svg)
+![Analyst crew architecture](diagrams/analyst-crew-architecture.png)
 
 **Blueprint 2: multi-GPU stack on 8× A100** (planned).
 
-![Blueprint 2 architecture](diagrams/blueprint2-architecture.svg)
+![Blueprint 2 architecture](diagrams/blueprint2-architecture.png)
+
+Editable sources: [`blueprint1-architecture.svg`](diagrams/blueprint1-architecture.svg), [`analyst-crew-architecture.svg`](diagrams/analyst-crew-architecture.svg), [`blueprint2-architecture.svg`](diagrams/blueprint2-architecture.svg).
 
 ## Grafana screenshots, 26 Sep 2026 (16:22–16:52)
 
@@ -62,4 +66,4 @@ Dashboard "Blueprint 1 — Inference stack", configuration C with the Mooncake K
 
 ## Documents
 
-- [Blueprint 1: Kubernetes manifests explained (PDF)](docs/blueprint1-kubernetes-manifests-explained.pdf)
+- **Blueprint 1: Kubernetes manifests explained** (15 pages): [read inline](docs/blueprint1-kubernetes-manifests-explained/README.md) · [PDF](docs/blueprint1-kubernetes-manifests-explained.pdf)
